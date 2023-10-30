@@ -13,6 +13,7 @@ html {
     font-family: Painting With Chocolate, serif;
     color: var(--primary-100) !important;
     text-transform: none;
+    letter-spacing: 0px;
 }
 
     .logo-text:hover {

@@ -1413,7 +1413,7 @@ footer {
     font-size: 16px;
     /*text-transform: uppercase;*/
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     border-bottom: 2px solid transparent
 }
 

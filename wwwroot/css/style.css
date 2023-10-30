@@ -2,6 +2,10 @@
     font-family: "Painting With Chocolate";
     src: url("../fonts/Painting_With_Chocolate.ttf") format('truetype');
 }
+@font-face {
+    font-family: "Sensations and Qualities";
+    src: url("../fonts/Sensations and Qualities.ttf") format('truetype');
+}
 
 
 html {
@@ -31,4 +35,13 @@ html {
 .footer-background {
     background-color: var(--primary-100);
     color: white;
+}
+
+.footer-name {
+    font-family: Sensations and Qualities, serif;
+    font-size: 2rem;
+}
+
+.footer-address {
+    line-height: 2.15;
 }

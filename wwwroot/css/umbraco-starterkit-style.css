@@ -1332,7 +1332,7 @@ body.theme-font-mono {
     }
 
         .header--fixed .nav-link--active, .header--fixed .nav-link:hover {
-            border-bottom-color: #000 !important
+            border-bottom-color: #000;
         }
 
     .header--fixed .hamburger span, .header--fixed .hamburger span:after, .header--fixed .hamburger span:before {

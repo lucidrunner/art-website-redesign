@@ -1410,8 +1410,8 @@ footer {
 .nav-link, .nav-link:visited {
     text-decoration: none;
     margin: 10px 15px;
-    font-size: 14px;
-    text-transform: uppercase;
+    font-size: 16px;
+    /*text-transform: uppercase;*/
     font-weight: 600;
     letter-spacing: 2px;
     border-bottom: 2px solid transparent

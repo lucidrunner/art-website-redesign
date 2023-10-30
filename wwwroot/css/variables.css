@@ -1,0 +1,20 @@
+﻿:root {
+    --primary-100: #115f78;
+    --primary-50: #86AFBB;
+    --primary-25: #c2d7dc;
+    --black-100: #161717;
+    --black-50: #8a8b8b;
+    --black-25: #C5C4C5;
+    --black-15: #DDDCDD;
+    --black-10: #E8E8E8;
+    --accent-100: #F99516;
+    --accent-50: #FAC88A;
+    --accent-25: #FDE5C4;
+    --accent-15: #FEEEDD;
+    /* --accent-100: #78115F;
+    --accent-50: #BB87AE;
+    --accent-25: #DDC2D6;
+    --accent-15: #EADDE7;*/
+
+    --shadow-50: #16171750;
+}

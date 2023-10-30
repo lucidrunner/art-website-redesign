@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro:400,700,300,600,600italic,400italic);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,500|Lato:400,700,900);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700italic,700,400italic|Noto+Sans:400,700);
+@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
 
 *, :after, :before {
     box-sizing: border-box
@@ -13,13 +14,12 @@ body, html {
 }
 
 html {
-    font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
 
 body {
-    margin: 0
+    margin: 0;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -1107,8 +1107,8 @@ body.theme-color-sun--active.nav-link:visited, body.theme-color-sun .border-main
 }
 
 .product-grid__item:hover body.theme-color-earth .product-grid__item__name, .product-grid__item:hover body.theme-color-earth .product-grid__item__price, body.theme-color-earth .bg-main-color, body.theme-color-earth .button--border--solid, body.theme-color-earth .mobile-nav, body.theme-color-earth .product-grid__item:hover .product-grid__item__name, body.theme-color-earth .product-grid__item:hover .product-grid__item__price, body.theme-color-earth .section--themed {
-    background-color: #e7afa3;
-    color: #000
+    background-color: var(--primary-100);
+    color: white;
 }
 
 .hamburger.lines:hover.active body.theme-color-earth span:after, .hamburger.lines:hover.active body.theme-color-earth span:before, .hamburger body.theme-color-earth span, .hamburger body.theme-color-earth span:after, .hamburger body.theme-color-earth span:before, body.theme-color-earth .bg-secondary-color, body.theme-color-earth .hamburger.lines:hover.active span:after, body.theme-color-earth .hamburger.lines:hover.active span:before, body.theme-color-earth .hamburger span, body.theme-color-earth .hamburger span:after, body.theme-color-earth .hamburger span:before, body.theme-color-earth .nav-link--home__text:after {
@@ -1328,11 +1328,11 @@ body.theme-font-mono {
     }
 
     .header--fixed .nav-link {
-        color: #000 !important
+        color: #000
     }
 
         .header--fixed .nav-link--active, .header--fixed .nav-link:hover {
-            border-bottom-color: #000 !important
+            border-bottom-color: #000;
         }
 
     .header--fixed .hamburger span, .header--fixed .hamburger span:after, .header--fixed .hamburger span:before {
@@ -1410,10 +1410,10 @@ footer {
 .nav-link, .nav-link:visited {
     text-decoration: none;
     margin: 10px 15px;
-    font-size: 14px;
-    text-transform: uppercase;
+    font-size: 16px;
+    /*text-transform: uppercase;*/
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     border-bottom: 2px solid transparent
 }
 
@@ -1444,10 +1444,10 @@ a.nav-link.nav-link--black {
         box-shadow: none
     }
 
-.nav-link--home__text {
-    position: relative
-}
-
+/*.nav-link--home__text {*/
+    /*position: relative*/
+/*}*/
+/*
     .nav-link--home__text:after {
         position: absolute;
         right: 0;
@@ -1455,7 +1455,7 @@ a.nav-link.nav-link--black {
         content: "";
         height: 3px;
         width: 200%
-    }
+    }*/
 
 .section {
     padding: 90px 20px
@@ -2010,12 +2010,12 @@ article {
     justify-content: center;
     -ms-flex-align: center;
     align-items: center;
-    opacity: 0;
+    visibility: hidden;
     height: 0
 }
 
 .mobile-nav--open {
-    opacity: 1;
+    visibility: visible;
     height: 100vh
 }
 

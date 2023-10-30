@@ -7,7 +7,6 @@
     // Get basic design settings from the homepage
     var home = (Home)Model.Root();
     var font = home.Font;
-    var colorTheme = home.ColorTheme;
 }
 
 <!doctype html>
@@ -19,19 +18,21 @@
     <title>@Model.Name - @home.Sitename</title>
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link href="https://fonts.cdnfonts.com/css/source-sans-pro" rel="stylesheet">
+    <link rel="stylesheet" href="@Url.Content("~/css/variables.css")" />
     <link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-style.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/style.css")" />
     @RenderSection("Header", required: false)
 </head>
 
-<body class="frontpage theme-font-@font theme-color-@colorTheme">
+<body class="frontpage theme-color-earth">
     <div class="mobile-nav">
         <nav class="nav-bar">
             @await Html.PartialAsync("~/Views/Partials/Navigation/TopNavigation.cshtml")
         </nav>
     </div>
 
-    <header class="header">
+    <header class="header header--fixed">
 
         <div class="logo">
             @if (home.SiteLogo != null && !string.IsNullOrEmpty(home.SiteLogo.Url()))
@@ -62,10 +63,11 @@
         @RenderBody()
     </main>
 
-    <footer class="section--themed">
+    <footer class="footer-background">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 ta-center">
+            <div class="row ">
+                <div class="col-md-4 ta-center footer-name">Jasmin Bost</div>
+                <div class="col-md-8 ta-center footer-address">
                     @home.FooterAddress
                 </div>
             </div>

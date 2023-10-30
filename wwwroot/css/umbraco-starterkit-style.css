@@ -1107,8 +1107,8 @@ body.theme-color-sun--active.nav-link:visited, body.theme-color-sun .border-main
 }
 
 .product-grid__item:hover body.theme-color-earth .product-grid__item__name, .product-grid__item:hover body.theme-color-earth .product-grid__item__price, body.theme-color-earth .bg-main-color, body.theme-color-earth .button--border--solid, body.theme-color-earth .mobile-nav, body.theme-color-earth .product-grid__item:hover .product-grid__item__name, body.theme-color-earth .product-grid__item:hover .product-grid__item__price, body.theme-color-earth .section--themed {
-    background-color: #e7afa3;
-    color: #000
+    background-color: var(--primary-100);
+    color: white;
 }
 
 .hamburger.lines:hover.active body.theme-color-earth span:after, .hamburger.lines:hover.active body.theme-color-earth span:before, .hamburger body.theme-color-earth span, .hamburger body.theme-color-earth span:after, .hamburger body.theme-color-earth span:before, body.theme-color-earth .bg-secondary-color, body.theme-color-earth .hamburger.lines:hover.active span:after, body.theme-color-earth .hamburger.lines:hover.active span:before, body.theme-color-earth .hamburger span, body.theme-color-earth .hamburger span:after, body.theme-color-earth .hamburger span:before, body.theme-color-earth .nav-link--home__text:after {
@@ -2010,12 +2010,12 @@ article {
     justify-content: center;
     -ms-flex-align: center;
     align-items: center;
-    opacity: 0;
+    visibility: hidden;
     height: 0
 }
 
 .mobile-nav--open {
-    opacity: 1;
+    visibility: visible;
     height: 100vh
 }
 

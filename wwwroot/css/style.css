@@ -3,13 +3,6 @@
     src: url("../fonts/Painting_With_Chocolate.ttf") format('truetype');
 }
 
-root {
-    --primary-100: #115f78;
-    --primary-50: #86AFBB;
-    --primary-25: #c2d7dc;
-    --black-100: #161717; 
-    --black-50: #8a8b8b;
-}
 
 html {
     font-family: Source Sans Pro,sans-serif
@@ -21,5 +14,7 @@ html {
 }
 
 .header--fixed {
-    box-shadow: 0 0.2rem 0.4rem black;
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }

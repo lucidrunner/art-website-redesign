@@ -1328,7 +1328,7 @@ body.theme-font-mono {
     }
 
     .header--fixed .nav-link {
-        color: #000 !important
+        color: #000
     }
 
         .header--fixed .nav-link--active, .header--fixed .nav-link:hover {

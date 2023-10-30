@@ -5,11 +5,13 @@
 
 
 html {
-    font-family: Source Sans Pro,sans-serif
+    font-family: Source Sans Pro, sans-serif;
+    color: var(--black-100) !important;
 }
 
 .logo-text {
     font-family: Painting With Chocolate, serif;
+    color: var(--primary-100) !important;
     text-transform: none;
 }
 

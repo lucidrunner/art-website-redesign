@@ -27,3 +27,8 @@ html {
     -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
     -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
+
+.footer-background {
+    background-color: var(--primary-100);
+    color: white;
+}

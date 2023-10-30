@@ -7,7 +7,6 @@
     // Get basic design settings from the homepage
     var home = (Home)Model.Root();
     var font = home.Font;
-    var colorTheme = home.ColorTheme;
 }
 
 <!doctype html>
@@ -26,7 +25,7 @@
     @RenderSection("Header", required: false)
 </head>
 
-<body class="frontpage theme-color-@colorTheme">
+<body class="frontpage theme-color-earth">
     <div class="mobile-nav">
         <nav class="nav-bar">
             @await Html.PartialAsync("~/Views/Partials/Navigation/TopNavigation.cshtml")
@@ -64,7 +63,7 @@
         @RenderBody()
     </main>
 
-    <footer class="section--themed">
+    <footer class="footer-background">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ta-center">

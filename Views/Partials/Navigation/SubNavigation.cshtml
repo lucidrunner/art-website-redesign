@@ -12,5 +12,6 @@
 
 @foreach (var item in selection)
 {
+    <span class="mobile-nav-line">"Test"</span>
     <a class="nav-link nav-link--black nav-link--air-bottom @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
 }

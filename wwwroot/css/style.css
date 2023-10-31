@@ -48,9 +48,24 @@ html {
 
 .mobile-nav--open a {
     color: white !important;
+    
 }
+
 
 .mobile-nav--open a:visited, 
 .mobile-nav--open a:hover {
     border-color: white !important;
+}
+
+.mobile-nav-line {
+    visibility: hidden;
+}
+
+.mobile-nav--open .mobile-nav-line {
+    content: "";
+    visibility: visible;
+    height: 2px;
+    background-color: var(--primary-opacity-50);
+    width: 50vw;
+    border-radius: 50%;
 }

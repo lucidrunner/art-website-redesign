@@ -1,0 +1,52 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Macros.PartialViewMacroPage
+
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Media
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedContentQuery PublishedContentQuery
+@inject IVariationContextAccessor VariationContextAccessor
+@inject IPublishedUrlProvider PublishedUrlProvider
+@inject IImageUrlGenerator ImageUrlGenerator
+
+@{
+    string url = (string)Model.MacroParameters["url"];
+    string label = Model.GetParameterValue<string>("label", "");
+    var mediaIds = Model?.MacroParameters["thumbnail"] as string;
+
+}
+
+<a href=@url>URL-label: @label</a>
+@if (mediaIds != null)
+{
+    <div class="row">
+        @foreach (var mediaId in mediaIds.Split(','))
+        {
+            var media = PublishedContentQuery.Media(mediaId);
+
+            @* a single image *@
+            if (media.IsDocumentType("Image"))
+            {
+                <div class="col-xs-6 col-md-3">
+                    <a href="@media.Url(PublishedUrlProvider)" class="thumbnail">
+                        <img src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 200, height: 200)" alt="@media.Name"/>
+                    </a>
+                </div>
+            }
+
+            @* a folder with images under it *@
+            foreach (var image in media.Children(VariationContextAccessor))
+            {
+                <div class="col-xs-6 col-md-3">
+                    <a href="@image.Url(PublishedUrlProvider)" class="thumbnail">
+                        <img src="@image.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 200, height: 200)" alt="@image.Name"/>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+}

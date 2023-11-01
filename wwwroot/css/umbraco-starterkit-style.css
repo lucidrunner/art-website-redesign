@@ -1534,7 +1534,7 @@ body.frontpage .section__hero-content {
     }
 
 .overlay--dark:after {
-    background: rgba(37,33,33,.3)
+    background: rgba(37,33,33,.45)
 }
 
 /*Ta bort denna kommentar om light används*/

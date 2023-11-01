@@ -2,6 +2,10 @@
 
 Borde fungera just nu - uSync-pluginen används för att automatiskt spara alla ändringar och importera sparade ändringar när projektet startas om.
 
+# Lite minnesanteckningar
+
+
+
 # Installation
 Klona ned repot  
   

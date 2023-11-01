@@ -18,4 +18,9 @@
 
     --shadow-50: #16171750;
     --primary-opacity-50: #86AFBB50;
+
+    --font-standard: 1rem;
+    --font-large: 1.5rem;
+    --font-extra-large: 2rem;
+    --font-small: 0.8rem;
 }

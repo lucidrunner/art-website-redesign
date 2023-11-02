@@ -12,11 +12,11 @@ body, html {
     font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }
-
-html {
+/*This code could prevent users to zoom in on the text/use the textsize they've set in their browser*/
+/*html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
-}
+}*/
 
 body {
     margin: 0;
@@ -39,14 +39,6 @@ audio, canvas, progress, video {
 [hidden], template {
     display: none
 }
-
-a {
-    background-color: transparent
-}
-
-    a:active, a:hover {
-        outline: 0
-    }
 
 abbr[title] {
     border-bottom: 1px dotted
@@ -1084,76 +1076,11 @@ body.theme-color-earth--active.nav-link:visited, body.theme-color-earth .border-
     border-color: #000
 }
 
-.product-grid__item:hover body.theme-color-freaky .product-grid__item__name, .product-grid__item:hover body.theme-color-freaky .product-grid__item__price, body.theme-color-freaky .bg-main-color, body.theme-color-freaky .button--border--solid, body.theme-color-freaky .mobile-nav, body.theme-color-freaky .product-grid__item:hover .product-grid__item__name, body.theme-color-freaky .product-grid__item:hover .product-grid__item__price, body.theme-color-freaky .section--themed {
-    background-color: #77f3d9;
-    color: #000
-}
-
-.hamburger.lines:hover.active body.theme-color-freaky span:after, .hamburger.lines:hover.active body.theme-color-freaky span:before, .hamburger body.theme-color-freaky span, .hamburger body.theme-color-freaky span:after, .hamburger body.theme-color-freaky span:before, body.theme-color-freaky .bg-secondary-color, body.theme-color-freaky .hamburger.lines:hover.active span:after, body.theme-color-freaky .hamburger.lines:hover.active span:before, body.theme-color-freaky .hamburger span, body.theme-color-freaky .hamburger span:after, body.theme-color-freaky .hamburger span:before, body.theme-color-freaky .nav-link--home__text:after {
-    background-color: #000;
-    color: #77f3d9
-}
-
-.blogposts-centered body.theme-color-freaky .blogpost-title, article body.theme-color-freaky a, article body.theme-color-freaky a:visited, body.theme-color-freaky .blogposts-centered .blogpost-title, body.theme-color-freaky .button--border, body.theme-color-freaky .employee-grid__item__email, body.theme-color-freaky .font-link-color, body.theme-color-freaky .font-main-color, body.theme-color-freaky .nav-link, body.theme-color-freaky .section__hero-content, body.theme-color-freaky article a, body.theme-color-freaky article a:visited, body.theme-color-freaky footer a, footer body.theme-color-freaky a {
-    color: #000
-}
-
-    body.theme-color-freaky--active.nav-link:visited, body.theme-color-freaky .border-main-color, body.theme-color-freaky .button--border, body.theme-color-freaky .nav-link--active, body.theme-color-freaky .nav-link:hover {
-        border-color: #000
-    }
 
 .nav-link--disabled, .nav-link--disabled:hover {
     border-color: transparent !important;
     cursor: not-allowed;
 }
-
-.montserrat, body.theme-font-standard .nav-link.nav-link--home, body.theme-font-standard h1, body.theme-font-standard h2, body.theme-font-standard h3, body.theme-font-standard h4, body.theme-font-standard h5, body.theme-font-standard h6 {
-    font-family: Montserrat,sans-serif
-}
-
-.source-sans-pro, body.theme-font-standard, body.theme-font-standard .nav-link {
-    font-family: Source Sans Pro,sans-serif
-}
-
-    body.theme-font-standard p {
-        line-height: 1.6em;
-        margin-bottom: 30px
-    }
-
-.lato, body.theme-font-mono .nav-link.nav-link--home, body.theme-font-mono h1, body.theme-font-mono h2, body.theme-font-mono h3, body.theme-font-mono h4, body.theme-font-mono h5, body.theme-font-mono h6 {
-    font-family: Lato,sans-serif
-}
-
-.roboto-mono, body.theme-font-mono, body.theme-font-mono .nav-link {
-    font-family: Roboto Mono,monospace
-}
-
-body.theme-font-mono {
-    font-weight: 400;
-    font-size: 14px
-}
-
-    body.theme-font-mono .nav-link.nav-link--home, body.theme-font-mono h1, body.theme-font-mono h2, body.theme-font-mono h3, body.theme-font-mono h4, body.theme-font-mono h5, body.theme-font-mono h6 {
-        font-weight: 900
-    }
-
-    body.theme-font-mono p {
-        line-height: 1.6em;
-        margin-bottom: 30px
-    }
-
-.playfair, body.theme-font-serif .nav-link.nav-link--home, body.theme-font-serif h1, body.theme-font-serif h2, body.theme-font-serif h3, body.theme-font-serif h4, body.theme-font-serif h5, body.theme-font-serif h6 {
-    font-family: Playfair Display,serif
-}
-
-.noto, body.theme-font-serif, body.theme-font-serif .nav-link {
-    font-family: Noto Sans,sans-serif
-}
-
-    body.theme-font-serif p {
-        line-height: 1.6em;
-        margin-bottom: 30px
-    }
 
 .product-image-container {
     display: -ms-flexbox;

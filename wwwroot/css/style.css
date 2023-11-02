@@ -92,3 +92,35 @@ html {
     padding-top: 5rem;
 }
 
+.cardmenu-item {
+    position: relative;
+    overflow: hidden;
+    height: 7rem;
+    width: 20rem;
+}
+
+.cardmenu-label {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
+    color: white;
+    margin: 0;
+}
+
+.cardmenu-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cardmenu-image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}

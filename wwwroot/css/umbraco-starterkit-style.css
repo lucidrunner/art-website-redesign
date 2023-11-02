@@ -1470,7 +1470,7 @@ a.nav-link.nav-link--black {
 }
 
 .section--full-height {
-    min-height: 100vh
+    min-height: 5vh
 }
 
 .section--header {
@@ -1958,8 +1958,8 @@ label {
         }
 
 article {
-    max-width: 700px;
-    margin: 0 auto
+    /*max-width: 700px;
+    margin: 0 auto*/
 }
 
     article a, article a:visited {
@@ -1987,13 +1987,13 @@ article {
         padding: 0
     }
 
-    article img {
+    /*article img {
         max-width: 100%
     }
 
     article iframe, article img {
         margin: 0 0 20px
-    }
+    }*/
 
 .mobile-nav {
     width: 100%;

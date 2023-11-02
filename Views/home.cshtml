@@ -17,8 +17,8 @@
 
 <section class="section section">
     @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new {thumbnail="1142,1156", label="Umbraco stuff", url="dn.se"})
-    @*@await Umbraco.RenderMacroAsync("FrontPageMenuItem", new {thumbnail="[{&quot;key&quot;:&quot;eeb711df-ed50-45f3-b196-0246b9b6e203&quot;,&quot;mediaKey&quot;:&quot;1bc5280b-8658-4027-89d9-58e2576e469b&quot;,&quot;crops&quot;:[],&quot;focalPoint&quot;:{&quot;left&quot;:0.5,&quot;top&quot;:0.5}}]", label="Test", url="products"})*@
-</section>
+
+    </section>
 
 <section class="section section">
     @await Html.GetBlockGridHtmlAsync(Model, "bodyText")

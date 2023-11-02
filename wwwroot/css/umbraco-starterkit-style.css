@@ -1062,50 +1062,6 @@ h2 {
     text-transform: uppercase
 }
 
-.product-grid__item:hover body.theme-color-water .product-grid__item__name, .product-grid__item:hover body.theme-color-water .product-grid__item__price, body.theme-color-water .bg-main-color, body.theme-color-water .button--border--solid, body.theme-color-water .mobile-nav, body.theme-color-water .product-grid__item:hover .product-grid__item__name, body.theme-color-water .product-grid__item:hover .product-grid__item__price, body.theme-color-water .section--themed {
-    background-color: #362bdc;
-    color: #fff
-}
-
-.hamburger.lines:hover.active body.theme-color-water span:after, .hamburger.lines:hover.active body.theme-color-water span:before, .hamburger body.theme-color-water span, .hamburger body.theme-color-water span:after, .hamburger body.theme-color-water span:before, body.theme-color-water .bg-secondary-color, body.theme-color-water .hamburger.lines:hover.active span:after, body.theme-color-water .hamburger.lines:hover.active span:before, body.theme-color-water .hamburger span, body.theme-color-water .hamburger span:after, body.theme-color-water .hamburger span:before, body.theme-color-water .nav-link--home__text:after {
-    background-color: #fff;
-    color: #362bdc
-}
-
-.blogposts-centered body.theme-color-water .blogpost-title, body.theme-color-water .blogposts-centered .blogpost-title, body.theme-color-water .button--border, body.theme-color-water .font-main-color, body.theme-color-water .nav-link, body.theme-color-water .section__hero-content, body.theme-color-water footer a, footer body.theme-color-water a {
-    color: #fff
-}
-
-article body.theme-color-water a, article body.theme-color-water a:visited, body.theme-color-water .employee-grid__item__email, body.theme-color-water .font-link-color, body.theme-color-water article a, body.theme-color-water article a:visited {
-    color: #362bdc
-}
-
-body.theme-color-water--active.nav-link:visited, body.theme-color-water .border-main-color, body.theme-color-water .button--border, body.theme-color-water .nav-link--active, body.theme-color-water .nav-link:hover {
-    border-color: #fff
-}
-
-.product-grid__item:hover body.theme-color-sun .product-grid__item__name, .product-grid__item:hover body.theme-color-sun .product-grid__item__price, body.theme-color-sun .bg-main-color, body.theme-color-sun .button--border--solid, body.theme-color-sun .mobile-nav, body.theme-color-sun .product-grid__item:hover .product-grid__item__name, body.theme-color-sun .product-grid__item:hover .product-grid__item__price, body.theme-color-sun .section--themed {
-    background-color: #f8ea88;
-    color: #000
-}
-
-.hamburger.lines:hover.active body.theme-color-sun span:after, .hamburger.lines:hover.active body.theme-color-sun span:before, .hamburger body.theme-color-sun span, .hamburger body.theme-color-sun span:after, .hamburger body.theme-color-sun span:before, body.theme-color-sun .bg-secondary-color, body.theme-color-sun .hamburger.lines:hover.active span:after, body.theme-color-sun .hamburger.lines:hover.active span:before, body.theme-color-sun .hamburger span, body.theme-color-sun .hamburger span:after, body.theme-color-sun .hamburger span:before, body.theme-color-sun .nav-link--home__text:after {
-    background-color: #000;
-    color: #f8ea88
-}
-
-.blogposts-centered body.theme-color-sun .blogpost-title, body.theme-color-sun .blogposts-centered .blogpost-title, body.theme-color-sun .button--border, body.theme-color-sun .font-main-color, body.theme-color-sun .nav-link, body.theme-color-sun .section__hero-content, body.theme-color-sun footer a, footer body.theme-color-sun a {
-    color: #000
-}
-
-article body.theme-color-sun a, article body.theme-color-sun a:visited, body.theme-color-sun .employee-grid__item__email, body.theme-color-sun .font-link-color, body.theme-color-sun article a, body.theme-color-sun article a:visited {
-    color: #b0a55b
-}
-
-body.theme-color-sun--active.nav-link:visited, body.theme-color-sun .border-main-color, body.theme-color-sun .button--border, body.theme-color-sun .nav-link--active, body.theme-color-sun .nav-link:hover {
-    border-color: #000
-}
-
 .product-grid__item:hover body.theme-color-earth .product-grid__item__name, .product-grid__item:hover body.theme-color-earth .product-grid__item__price, body.theme-color-earth .bg-main-color, body.theme-color-earth .button--border--solid, body.theme-color-earth .mobile-nav, body.theme-color-earth .product-grid__item:hover .product-grid__item__name, body.theme-color-earth .product-grid__item:hover .product-grid__item__price, body.theme-color-earth .section--themed {
     background-color: var(--primary-100);
     color: white;

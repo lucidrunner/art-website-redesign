@@ -2023,7 +2023,7 @@ article {
     transition: transform .6s cubic-bezier(.23,1,.32,1);
     transform: translateY(999px);
     opacity: 0;
-    font-size: 18px;
+    font-size: 24px;
     margin: 15px
 }
 

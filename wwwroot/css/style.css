@@ -13,6 +13,15 @@ html {
     color: var(--black-100);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: Playfair Display, serif;
+}
+
+
+a, nav-link {
+    font-family: Playfair Display, serif;
+}
+
 .logo-text {
     font-family: Painting With Chocolate, serif;
     color: var(--primary-100) !important;
@@ -45,6 +54,10 @@ html {
     -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
+.hero-text {
+    letter-spacing: 1.4px;
+}
+
 .footer-background {
     background-color: var(--primary-100);
     color: white;
@@ -61,7 +74,6 @@ html {
 
 .mobile-nav--open a {
     color: white !important;
-    
 }
 
 
@@ -85,11 +97,16 @@ html {
 
 
 .section--half-height {
-    height: max(50vh, 300px);
+    height: max(45vh, 300px);
 }
 
 .main-container {
     padding-top: 5rem;
+}
+
+.cardmenu {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 .cardmenu-item {
@@ -97,10 +114,12 @@ html {
     overflow: hidden;
     height: 7rem;
     /*width: 20rem;*/
-    outline: 1px solid var(--shadow-50);
+    border: 1px solid white;
+    
 }
 
 .cardmenu-label {
+    font-size: 1.5rem;
     position: relative;
     display: grid;
     align-items: center;
@@ -114,7 +133,7 @@ html {
 }
 
     .cardmenu-label:hover {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         background-color: rgba(37,33,33,.40);
     }
 

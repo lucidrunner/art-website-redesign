@@ -37,30 +37,10 @@
 <a href="@url">
     <div class="cardmenu-item">
         <div class="cardmenu-image-container">
-            <img class="cardmenu-image" src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 400, height: 400)" alt="@media.Name"/>
+            <img class="cardmenu-image" src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 1500, height: 1500)" alt="@media.Name"/>
         </div>
         <h2 class="cardmenu-label">
             @label
         </h2>
     </div>
-    @*<article class="cardmenu-item">
-        @if (media != null)
-        {
-            <div class="cardmenu-thumbnail">
-            </div>
-        }<p class="cardmenu-label">
-            @label
-        </p>
-        
-    </article>*@
 </a>
-@*@if (mediaIds != null)
-{
-    <div class="row">
-        <div class="col-xs-6 col-md-3">
-                <a href="@media.Url(PublishedUrlProvider)" class="thumbnail">
-                    <img src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 200, height: 200)" alt="@media.Name"/>
-                </a>
-            </div>
-    </div>
-}*@

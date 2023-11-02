@@ -15,10 +15,32 @@
 </section>
 
 
-<section class="section section">
-    @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new {thumbnail="1142,1156", label="Umbraco stuff", url="dn.se"})
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1142,1156", label = "Konstgalleri", url = "konstgalleri" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1145", label = "Kurser", url = "kurser" })
+        </div>
 
-    </section>
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1136", label = "Porträtt", url = "portratt" })
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1140", label = "Restaurering", url = "restaurering" })
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1139", label = "Ramverkstad", url = "ram" })
+        </div>
+    </div>
+</section>
 
 <section class="section section">
     @await Html.GetBlockGridHtmlAsync(Model, "bodyText")

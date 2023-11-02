@@ -110,6 +110,10 @@ input {
             -webkit-appearance: none
         }
 
+textarea {
+    overflow: auto
+}
+
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -358,33 +362,6 @@ input {
 
 .col-xs-offset-12 {
     margin-left: 100%
-}
-
-fieldset {
-    margin: 0;
-    min-width: 0
-}
-
-fieldset, legend {
-    padding: 0;
-    border: 0
-}
-
-legend {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: inherit;
-    color: #333;
-    border-bottom: 1px solid #e5e5e5
-}
-
-label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700
 }
 
 input[type=checkbox], input[type=radio] {

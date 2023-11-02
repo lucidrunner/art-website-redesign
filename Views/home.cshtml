@@ -6,18 +6,48 @@
     Layout = "master.cshtml";
     var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : String.Empty;
 }
+
+
 <section class="section section--half-height background-image-full overlay overlay--dark section--content-center"
          style="background-image: url('@backgroundImage')">
     <div class="section__hero-content">
-        <h1>@Model.HeroHeader</h1>
+        <h1 class="hero-text">@Model.HeroHeader</h1>
         <p class="section__description">@Model.HeroDescription</p>
     </div>
 </section>
 
+
+<section class="container cardmenu">
+    <div class="row">
+        <div class="col-xs-12">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1163", label = "Konstgalleri", url = "konstgalleri" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1165", label = "Kurser", url = "kurser" })
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1166", label = "Porträtt", url = "portratt" })
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1160", label = "Restaurering", url = "restaurering" })
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = "1162", label = "Ramverkstad", url = "ram" })
+        </div>
+    </div>
+</section>
+@*
 <section class="section section">
     @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
-</section>
-
+</section>*@
+@*
 <section class="section section--themed">
 
     <div class="container">
@@ -36,4 +66,4 @@
         </div>
     </div>
 
-</section>
+</section>*@

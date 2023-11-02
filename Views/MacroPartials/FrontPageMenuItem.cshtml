@@ -1,0 +1,46 @@
+﻿
+@inherits Umbraco.Cms.Web.Common.Macros.PartialViewMacroPage
+
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Media
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedContentQuery PublishedContentQuery
+@inject IVariationContextAccessor VariationContextAccessor
+@inject IPublishedUrlProvider PublishedUrlProvider
+@inject IImageUrlGenerator ImageUrlGenerator
+
+@{
+    string url = Model.GetParameterValue<string>("url", "") ?? "";
+    string label = Model.GetParameterValue<string>("label", "") ?? "";
+    var mediaIds = Model?.MacroParameters["thumbnail"] as string;
+
+    //Select the first image that we've passed in
+    IPublishedContent? media = null;
+    if (mediaIds != null)
+    {
+        foreach (var mediaId in mediaIds.Split(','))
+        {
+            var parsedMedia = PublishedContentQuery.Media(mediaId);
+            if (parsedMedia != null && parsedMedia.IsDocumentType("Image"))
+            {
+                media = parsedMedia;
+                break;
+            }
+        }
+    }
+}
+
+<a href="@url">
+    <div class="cardmenu-item">
+        <div class="cardmenu-image-container">
+            <img class="cardmenu-image" src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 1500, height: 1500)" alt="@media.Name"/>
+        </div>
+        <h2 class="cardmenu-label">
+            @label
+        </h2>
+    </div>
+</a>

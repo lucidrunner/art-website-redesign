@@ -1,0 +1,18 @@
+﻿footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.footer-background {
+    background-color: var(--primary-100);
+    color: white;
+}
+
+.footer-name {
+    font-family: Sensations and Qualities, serif;
+    font-size: 2rem;
+}
+
+.footer-address {
+    line-height: 2.15;
+}

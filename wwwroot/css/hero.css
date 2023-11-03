@@ -1,0 +1,30 @@
+﻿/* Egen fil för tillfället ifall vi vill göra hero på homepage annorlunda;
+    se BannerImage.css för de andra sidorna*/
+
+.overlay {
+    position: relative
+}
+
+    .overlay:after {
+        content: "";
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%
+    }
+
+.overlay--dark:after {
+    background: rgba(37,33,33,.45)
+}
+
+/*Ta bort denna kommentar om light inte används, may delete*/
+.overlay--light:after {
+    background: hsla(0,0%,88%,.6)
+}
+
+.overlay * {
+    position: relative;
+    z-index: 1
+}

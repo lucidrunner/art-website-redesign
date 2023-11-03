@@ -45,6 +45,12 @@
     grid-row: span var(--umb-block-grid--area-row-span, 1);
 }
 
+@media only screen and (max-width: 600px){
+    .umb-block-grid__area {
+        grid-column-end: span 12;
+    }
+}
+
 @media (min-width:1024px) {
     .umb-block-grid__layout-item {
         grid-column-end: span var(--umb-block-grid--item-column-span, 1);

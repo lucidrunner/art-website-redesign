@@ -27,6 +27,13 @@ h1 {
     margin: .67em 0;
 }
 
+/*Uppdatera h2 nedan, klippt in från starterstyle-filen*/
+h2 {
+    font-size: 1.6em;
+    letter-spacing: 2px;
+    text-transform: uppercase
+}
+
 img {
     border: 0;
 }

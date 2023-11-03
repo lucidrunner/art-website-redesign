@@ -1,4 +1,9 @@
-﻿.footer-background {
+﻿footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.footer-background {
     background-color: var(--primary-100);
     color: white;
 }

@@ -612,12 +612,6 @@ input[type=search] {
     line-height: 30px
 }
 
-h2 {
-    font-size: 1.6em;
-    letter-spacing: 2px;
-    text-transform: uppercase
-}
-
 .product-grid__item:hover body.theme-color-earth .product-grid__item__name, .product-grid__item:hover body.theme-color-earth .product-grid__item__price, body.theme-color-earth .bg-main-color, body.theme-color-earth .button--border--solid, body.theme-color-earth .mobile-nav, body.theme-color-earth .product-grid__item:hover .product-grid__item__name, body.theme-color-earth .product-grid__item:hover .product-grid__item__price, body.theme-color-earth .section--themed {
     background-color: var(--primary-100);
     color: white;
@@ -741,49 +735,12 @@ body.theme-color-earth--active.nav-link:visited, body.theme-color-earth .border-
     display: inline-block
 }
 
-.header {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    z-index: 4
-}
-
-.header--fixed {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: #fff;
-    transition: padding .2s cubic-bezier(.694,.0482,.335,1),background .2s cubic-bezier(.694,.0482,.335,1);
-    left: 0;
-    position: fixed
-}
-
-    .header--fixed .nav-bar {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%)
-    }
-
 body.fixed .top-nav.-open {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     transform: translate(0)
-}
-
-footer {
-    padding-top: 60px;
-    padding-bottom: 60px
-}
-
-.logo {
-    padding-left: 20px
 }
 
 /*May delete later*/
@@ -841,16 +798,9 @@ footer {
         box-shadow: none
     }
 
-.section {
-    padding: 90px 0px
-}
 
 .section--stroke-bottom {
     border-bottom: 1px solid #f2f2f2
-}
-
-.section--full-height {
-    min-height: 5vh
 }
 
 .section--content-center {
@@ -893,35 +843,7 @@ body.frontpage .section__hero-content {
     background-position: 50%
 }
 
-/* SPARA SAMTLIGA OVERLAY */
-.overlay {
-    position: relative
-}
 
-    .overlay:after {
-        content: "";
-        z-index: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%
-    }
-
-.overlay--dark:after {
-    background: rgba(37,33,33,.45)
-}
-
-/*Ta bort denna kommentar om light inte används, may delete*/
-.overlay--light:after {
-    background: hsla(0,0%,88%,.6)
-}
-
-.overlay * {
-    position: relative;
-    z-index: 1
-}
-/* SPARA SAMTLIGA OVERLAY */
 
 /*May delete later: employee-stuff*/
 .employee-grid {
@@ -1012,37 +934,6 @@ body.frontpage .section__hero-content {
 .no-scroll {
     overflow: hidden
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     input[type=date].form-control, input[type=datetime-local].form-control, input[type=month].form-control, input[type=time].form-control {

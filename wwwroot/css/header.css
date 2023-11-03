@@ -2,6 +2,14 @@
     font-family: Playfair Display, serif;
 }
 
+.logo {
+    padding-left: 20px
+}
+
+.logo-text:hover {
+    border-bottom-color: var(--primary-100) !important;
+}
+
 .logo-text {
     font-family: Painting With Chocolate, serif;
     color: var(--primary-100) !important;
@@ -37,9 +45,33 @@
     }
 }
 
-.logo-text:hover {
-    border-bottom-color: var(--primary-100) !important;
+.header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    z-index: 4
 }
+
+.header--fixed {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #fff;
+    transition: padding .2s cubic-bezier(.694,.0482,.335,1),background .2s cubic-bezier(.694,.0482,.335,1);
+    left: 0;
+    position: fixed
+}
+
+    .header--fixed .nav-bar {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%)
+    }
 
 .header--fixed {
     box-shadow: 0 0.2rem 0.4rem var(--shadow-50);

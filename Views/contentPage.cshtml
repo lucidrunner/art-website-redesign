@@ -3,9 +3,23 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContentPage>
 @{
     Layout = "master.cshtml";
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
 }
 
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+
+<section class="section section--half-height background-image-full overlay overlay--dark section--content-center"
+         style="background-image: url('@backgroundImage')">
+    @*  <div class="section__hero-content">
+        <h1 class="hero-text">@Model.HeroHeader</h1>
+        <p class="section__description">@Model.HeroDescription</p>
+    </div>*@
+</section>
+
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=""})
+
+
 
 <section class="section">
 

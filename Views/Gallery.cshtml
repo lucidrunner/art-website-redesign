@@ -2,5 +2,21 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.GalleryPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+	Layout = "master.cshtml";
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+    var pageTitle = Model.PageTitle ?? string.Empty;
 }
+
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
+
+<section class="container">
+    <article>
+        @await Html.GetBlockGridHtmlAsync(Model, "galleryText")
+    </article>
+</section>
+
+<section class ="container">
+    <hr/>
+
+
+</section>

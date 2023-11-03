@@ -17,6 +17,16 @@
 
 <section class ="container">
     <hr/>
+    <div class="employee-grid">
+        @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
+        {
+
+            <div class="employee-grid__item">
+                    <div class="employee-grid__item__image" style="background-image: url('@galleryImage.Image?.Url()')"></div>
+                
+            </div>
+        }
+    </div>
 
 
 </section>

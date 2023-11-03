@@ -28,5 +28,7 @@
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings-schema_1umbraco_1cms_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
   
 </Project>

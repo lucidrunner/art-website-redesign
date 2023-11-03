@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Cms.Web.Common.Macros.PartialViewMacroPage
+@{
+
+    string? imageUrl = Model.GetParameterValue<string?>("imageUrl", null) ?? null;
+    string? bannerText = Model.GetParameterValue<string?>("bannerText", null) ?? null;
+}
+
+@if (imageUrl != null)
+{
+    <section class="banner banner-image-full banner-overlay banner-center"
+             style="background-image: url('@imageUrl')">
+          <div class="section__hero-content">
+        <h1 class="banner-text">@bannerText</h1>
+    </div>
+    </section>
+}

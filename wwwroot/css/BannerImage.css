@@ -46,5 +46,6 @@
 }
 
 .banner-text {
+    cursor: default;
     letter-spacing: 1.4px;
 }

@@ -1,4 +1,164 @@
-﻿.mobile-nav--open a {
+﻿.mobile-nav-handler {
+    margin-left: auto;
+    margin-right: 40px
+}
+
+.hamburger {
+    position: relative;
+    cursor: pointer;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+    .hamburger span, .hamburger span:after, .hamburger span:before {
+        display: block;
+        transition-property: all;
+        transition-duration: .1s
+    }
+
+    .hamburger span {
+        margin: 0 auto;
+        position: relative
+    }
+
+        .hamburger span:after, .hamburger span:before {
+            position: absolute;
+            content: ''
+        }
+
+    .hamburger.lines span, .hamburger.lines span:after, .hamburger.lines span:before {
+        width: 20px;
+        height: 2px
+    }
+
+        .hamburger.lines span:before {
+            transform: translateY(-5px)
+        }
+
+        .hamburger.lines span:after {
+            transform: translateY(5px)
+        }
+
+    .hamburger.lines:hover span:before {
+        transform: translateY(-7px)
+    }
+
+    .hamburger.lines:hover span:after {
+        transform: translateY(7px)
+    }
+
+    .hamburger.lines:hover.active span:before {
+        transform: rotate(45deg)
+    }
+
+    .hamburger.lines:hover.active span:after {
+        transform: rotate(-45deg)
+    }
+
+    .hamburger.lines.active span {
+        background-color: transparent !important
+    }
+
+        .hamburger.lines.active span:after, .hamburger.lines.active span:before {
+            transform: translateY(0)
+        }
+
+        .hamburger.lines.active span:before {
+            transform: rotate(45deg)
+        }
+
+        .hamburger.lines.active span:after {
+            transform: rotate(-45deg)
+        }
+
+
+.mobile-nav {
+    width: 100%;
+    height: auto;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    visibility: hidden;
+    height: 0
+}
+
+.mobile-nav--open {
+    visibility: visible;
+    height: 100vh
+}
+
+.mobile-nav .nav-link {
+    transition: transform .6s cubic-bezier(.23,1,.32,1);
+    transform: translateY(999px);
+    opacity: 0;
+    font-size: var(--font-large);
+    margin: 15px;
+}
+
+    .mobile-nav .nav-link:nth-child(1) {
+        transition-delay: 60ms
+    }
+
+    .mobile-nav .nav-link:nth-child(2) {
+        transition-delay: 80ms
+    }
+
+    .mobile-nav .nav-link:nth-child(3) {
+        transition-delay: .1s
+    }
+
+    .mobile-nav .nav-link:nth-child(4) {
+        transition-delay: .12s
+    }
+
+    .mobile-nav .nav-link:nth-child(5) {
+        transition-delay: .14s
+    }
+
+    .mobile-nav .nav-link:nth-child(6) {
+        transition-delay: .16s
+    }
+
+    .mobile-nav .nav-link:nth-child(7) {
+        transition-delay: .18s
+    }
+
+    .mobile-nav .nav-link:nth-child(8) {
+        transition-delay: .2s
+    }
+
+    .mobile-nav .nav-link:nth-child(9) {
+        transition-delay: .22s
+    }
+
+    .mobile-nav .nav-link:nth-child(10) {
+        transition-delay: .24s
+    }
+
+    .mobile-nav .nav-link:nth-child(11) {
+        transition-delay: .26s
+    }
+
+.mobile-nav--open .nav-link {
+    transform: translate(0);
+    opacity: 1
+}
+
+.mobile-nav--open a {
     color: white !important;
 }
 
@@ -30,12 +190,11 @@
     position: relative;
     overflow: hidden;
     height: 7rem;
-    /*width: 20rem;*/
     border: 1px solid white;
 }
 
 .cardmenu-label {
-    font-size: 1.5rem;
+    font-size: var(--font-large);
     position: relative;
     display: grid;
     align-items: center;
@@ -68,11 +227,12 @@
         width: 100%;
         object-fit: cover;
         object-position: center;
-        /*filter: grayscale(20%);*/
     }
 
-/*
-.cardmenu-image-container img:hover {
-    filter: grayscale(0);
-    }
-*/
+.cardmenu-item img {
+    filter: grayscale(20%);
+}
+
+.cardmenu-item:hover img {
+    filter: grayscale(0%);
+}

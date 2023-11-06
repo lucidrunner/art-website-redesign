@@ -45,7 +45,7 @@
     </div>
 </section>
 
-<section id="gallery-modal" class="gallery-modal-overlay" onclick="hideModal()">
+<section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
         <button class="btn-modal-exit">X</button>
         <img id="gallery-modal-image" class="gallery-modal-image"/>
@@ -83,7 +83,6 @@
 <script>
 
     function showModal(imageObject){
-        console.log(imageObject.url);
         //Title
         $("#gallery-modal-title").text(imageObject.title);
         $("#gallery-modal-link").attr("href", imageObject.url);
@@ -115,8 +114,17 @@
 
         //Show the modal
         $("#gallery-modal").show();
+        $("#gallery-modal").on('click', event => checkHide(event));
         $("#gallery-modal-container").focus();
 
+    }
+    
+    function checkHide(e) {
+        if (e.target.id === "gallery-modal") {
+            $("#galler-modal").off('click');
+            hideModal();
+        }
+        
     }
     
     function hideModal(){

@@ -12,3 +12,13 @@
 .main-container{
     padding-top: 5rem;
 }
+
+.container hr {
+    margin-inline: 0.7rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .container hr {
+        margin-inline: 0;
+    }        
+}

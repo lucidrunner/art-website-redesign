@@ -47,7 +47,7 @@
 
 <section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
-        <button class="btn-modal-exit">X</button>
+        <button class="btn-modal-exit" onclick="hideModal()">X</button>
         <img id="gallery-modal-image" class="gallery-modal-image"/>
         <div class="gallery-modal-title-line">
             <h2 id="gallery-modal-title">Test Title</h2>
@@ -114,20 +114,30 @@
 
         //Show the modal
         $("#gallery-modal").show();
+        
+        //Hide modal if we click outside the inner modal space
         $("#gallery-modal").on('click', event => checkHide(event));
+        //Hide modal if we press escape
+        $(document).keyup(function(event){
+           if(event.originalEvent.key === "Escape"){
+                hideModal();    
+           }
+        });
+        
+        //Finally, focus the modal so we can scroll via our keyboard
         $("#gallery-modal-container").focus();
 
     }
     
     function checkHide(e) {
         if (e.target.id === "gallery-modal") {
-            $("#galler-modal").off('click');
             hideModal();
         }
         
     }
     
-    function hideModal(){
+    function hideModal() {
+        $("#gallery-modal").off('click');
         $("#gallery-modal").hide();
     }
 

@@ -1,10 +1,10 @@
-﻿.container p,
-.container ul,
-.container ol,
-.container h2,
-.container h3,
-.container h4,
-.container h5 {
+.text-container p,
+.text-container ul,
+.text-container ol,
+.text-container h2,
+.text-container h3,
+.text-container h4,
+.text-container h5 {
     max-width: 620px;
     margin: auto;
 }

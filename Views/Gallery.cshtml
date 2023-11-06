@@ -9,7 +9,7 @@
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
 
-<section class="container">
+<section class="container text-container">
     <article>
         @await Html.GetBlockGridHtmlAsync(Model, "galleryText")
     </article>

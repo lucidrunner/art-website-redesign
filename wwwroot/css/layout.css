@@ -1,4 +1,4 @@
-﻿.text-container p,
+.text-container p,
 .text-container ul,
 .text-container ol,
 .text-container h2,
@@ -7,4 +7,18 @@
 .text-container h5 {
     max-width: 620px;
     margin: auto;
+}
+
+.main-container{
+    padding-top: 5rem;
+}
+
+.container hr {
+    margin-inline: 0.7rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .container hr {
+        margin-inline: 0;
+    }        
 }

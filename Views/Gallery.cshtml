@@ -5,7 +5,10 @@
 	Layout = "master.cshtml";
     var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
     var pageTitle = Model.PageTitle ?? string.Empty;
+    bool testVariable = false;
 }
+
+
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
 
@@ -21,10 +24,103 @@
         @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
         {
             <div class="gallery-grid-item">
-                    <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()'></img>
+                <img class="gallery-grid-item-image" onclick="showModal(
+            {
+                title: '@galleryImage.Titel', 
+                url: '@galleryImage.Image.Url()',
+                altText: '@galleryImage.AltText',
+                description: '@galleryImage.Beskrivning',
+                technique: '@galleryImage.Technique',
+                series: '@string.Join(", ", @galleryImage.Series)',
+                seriesTags: '@string.Join(", ", @galleryImage.Tags)',
+                width: '@galleryImage.Width',
+                height: '@galleryImage.Height',
+                availability: '@galleryImage.Availability',
+                miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
+                
+            }
+            )" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
             </div>
         }
     </div>
-
-
 </section>
+
+<section id="gallery-modal" class="gallery-modal-overlay" onclick="hideModal()">
+    <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
+        <button class="modal-exit">X</button>
+        <img id="gallery-modal-image" class="gallery-modal-image"/>
+        <div class="gallery-modal-title-line">
+            <h2 id="gallery-modal-title">Test Title</h2>
+            <a id="gallery-modal-link" target="_blank">Öppna i helskärm ⧉</a>
+        </div>
+        <p id="gallery-modal-description"></p>
+        <div>
+            <h3>Teknik</h3>
+            <p id="gallery-modal-technique"></p>
+        </div>
+        <div>
+            <h3>Serie</h3>
+            <p id="gallery-modal-series"></p>
+            <h4>Motiv</h4>
+            <p id="gallery-modal-series-tags"></p>
+        </div>
+        <div>
+            <h3>Mått</h3>
+            <p id="gallery-modal-size"></p>
+        </div>
+        
+        <div>
+            <h3>Detaljer</h3>
+            <p id="gallery-modal-availability"></p>
+            <h4>Taggar</h4>
+            <p id="gallery-modal-misc-tags"></p>
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+    function showModal(imageObject){
+        console.log(imageObject.url);
+        //Title
+        $("#gallery-modal-title").text(imageObject.title);
+        $("#gallery-modal-link").attr("href", imageObject.url);
+        
+        //Image
+        $("#gallery-modal-image").attr("src", imageObject.url);
+        $("#gallery-modal-image").attr("alt", imageObject.altText);
+        
+        //Optional Description
+        $("#gallery-modal-description").text(imageObject.description);
+
+        //Technique
+        $("#gallery-modal-technique").text(imageObject.technique);
+
+        //Series
+
+        $("#gallery-modal-series").text(imageObject.series);
+        $("#gallery-modal-series-tags").text(imageObject.seriesTags);
+
+
+        //Sizes
+        $("#gallery-modal-size").text(imageObject.width + "x" + imageObject.height);
+        
+        //Details
+        $("#gallery-modal-availability").text("Tillgänglighet: " + imageObject.availability);
+        $("#gallery-modal-misc-tags").text(imageObject.miscTags);
+
+        
+
+        //Show the modal
+        $("#gallery-modal").show();
+        $("#gallery-modal-container").focus();
+
+    }
+    
+    function hideModal(){
+        $("#gallery-modal").hide();
+    }
+
+</script>

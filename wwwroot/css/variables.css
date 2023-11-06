@@ -23,6 +23,8 @@
     --font-large: 1.5rem;
     --font-extra-large: 2rem;
     --font-small: 0.8rem;
+
+    --space-small: 0.7rem;
 }
 
 @font-face {

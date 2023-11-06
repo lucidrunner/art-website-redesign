@@ -20,10 +20,8 @@
     <div class="gallery-grid">
         @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
         {
-
             <div class="gallery-grid-item">
                     <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()'></img>
-                
             </div>
         }
     </div>

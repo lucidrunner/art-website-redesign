@@ -47,7 +47,7 @@
 
 <section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
-        <button class="btn-modal-exit" onclick="hideModal()">X</button>
+        <button id="btn-modal-exit" class="btn-modal-exit" onclick="hideModal()">X</button>
         <img id="gallery-modal-image" class="gallery-modal-image"/>
         <div class="gallery-modal-title-line">
             <h2 id="gallery-modal-title">Test Title</h2>
@@ -109,11 +109,14 @@
         //Details
         $("#gallery-modal-availability").text("Tillgänglighet: " + imageObject.availability);
         $("#gallery-modal-misc-tags").text(imageObject.miscTags);
-
         
 
         //Show the modal
         $("#gallery-modal").show();
+
+        
+        $("#gallery-modal").scrollTop(-200);
+
         
         //Hide modal if we click outside the inner modal space
         $("#gallery-modal").on('click', event => checkHide(event));

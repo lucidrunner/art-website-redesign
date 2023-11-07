@@ -70,7 +70,7 @@
     position: fixed;
     display: none;
     
-    top: 0;
+    top: 3.5rem;
     bottom: 0;
     right: 0;
     left: 0;
@@ -87,7 +87,7 @@
 .gallery-modal-inner {
     position: relative;
     border-radius: 0.5rem;
-    margin-block: 6rem;
+    margin-block: 3rem;
     height: fit-content;
     max-width: 70%;
     background-color: white;

@@ -23,10 +23,9 @@
     <div class="gallery-grid">
         @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
         {
-            <div class="gallery-grid-item">
-                <img class="gallery-grid-item-image" onclick="showModal(
+            <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
             {
-                title: '@galleryImage.Titel', 
+                title: '@galleryImage.Titel',
                 url: '@galleryImage.Image.Url()',
                 altText: '@galleryImage.AltText',
                 description: '@galleryImage.Beskrivning',
@@ -37,17 +36,18 @@
                 height: '@galleryImage.Height',
                 availability: '@galleryImage.Availability',
                 miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
-                
+
             }
-            )" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
-            </div>
+            )">
+                <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+            </button>
         }
     </div>
 </section>
 
 <section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
-        <button id="btn-modal-exit" class="btn-modal-exit" onclick="hideModal()">X</button>
+        <button id="btn-modal-exit" class="btn-modal-exit" onclick="hideModal()" aria-label="Stäng">X</button>
         <img id="gallery-modal-image" class="gallery-modal-image"/>
         <div class="gallery-modal-title-line">
             <h2 id="gallery-modal-title">Test Title</h2>

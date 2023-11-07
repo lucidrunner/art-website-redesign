@@ -14,6 +14,8 @@
     flex: 1 1 100%;
     max-width: 100%;
     padding: 0.15rem 0.7rem;
+    border: 0;
+    background-color: white;
 }
 
 .gallery-grid-item:hover {

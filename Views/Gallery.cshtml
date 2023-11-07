@@ -36,6 +36,9 @@
     <hr/>
     <h2>Akvarell</h2>
     <div class="gallery-grid">
+        @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
+            GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha
+        *@
         @foreach (GalleryImage galleryImage in getImages())
         {
             <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(

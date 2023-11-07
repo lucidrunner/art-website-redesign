@@ -23,10 +23,9 @@
     <div class="gallery-grid">
         @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
         {
-            <div class="gallery-grid-item">
-                <img class="gallery-grid-item-image" onclick="showModal(
+            <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
             {
-                title: '@galleryImage.Titel', 
+                title: '@galleryImage.Titel',
                 url: '@galleryImage.Image.Url()',
                 altText: '@galleryImage.AltText',
                 description: '@galleryImage.Beskrivning',
@@ -37,21 +36,22 @@
                 height: '@galleryImage.Height',
                 availability: '@galleryImage.Availability',
                 miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
-                
+
             }
-            )" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
-            </div>
+            )">
+                <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+            </button>
         }
     </div>
 </section>
 
 <section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
-        <button id="btn-modal-exit" class="btn-modal-exit" onclick="hideModal()">X</button>
+        <button id="btn-modal-exit" class="btn-modal-exit" onclick="hideModal()" aria-label="Stäng">X</button>
         <img id="gallery-modal-image" class="gallery-modal-image"/>
         <div class="gallery-modal-title-line">
             <h2 id="gallery-modal-title">Test Title</h2>
-            <a id="gallery-modal-link" target="_blank">Öppna i helskärm ⧉</a>
+            <a id="gallery-modal-link" target="_blank">Öppna i helskärm <span aria-ignore>⧉</span></a>
         </div>
         <p id="gallery-modal-description"></p>
         <div>
@@ -90,6 +90,7 @@
         //Image
         $("#gallery-modal-image").attr("src", imageObject.url);
         $("#gallery-modal-image").attr("alt", imageObject.altText);
+
         
         //Optional Description
         $("#gallery-modal-description").text(imageObject.description);
@@ -110,11 +111,13 @@
         $("#gallery-modal-availability").text("Tillgänglighet: " + imageObject.availability);
         $("#gallery-modal-misc-tags").text(imageObject.miscTags);
         
+        //Accessability
+        $("#btn-modal-exit").attr("aria-label", "Stäng " + imageObject.title);
 
         //Show the modal
         $("#gallery-modal").show();
 
-        
+        //Force top scroll
         $("#gallery-modal").scrollTop(-200);
 
         
@@ -127,9 +130,9 @@
            }
         });
         
-        //Finally, focus the modal so we can scroll via our keyboard
+        //Finally, focus the modal so we can scroll via our keyboard, and then focus the button to keep keyboard navigation consistent
         $("#gallery-modal-container").focus();
-
+        $("#btn-modal-exit").focus();
     }
     
     function checkHide(e) {

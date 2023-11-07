@@ -30,10 +30,13 @@
     width: 100%;
     object-fit: contain;
     background-repeat: no-repeat;
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
     .gallery-grid-item-image:hover {
-        filter: contrast(125%);
+        border: 2px solid white;
     }
 
 @media (min-width: 768px) {

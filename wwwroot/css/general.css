@@ -37,3 +37,7 @@ h2 {
 img {
     border: 0;
 }
+
+p{
+    line-height: 150%;
+}

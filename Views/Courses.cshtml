@@ -13,47 +13,39 @@
     <div class="container text-container">
 
         <div>
-            @Model.Value("introdructionText",
-            fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            @Model.Value("introdructionText")
         </div>
         <div>
             <h2>
                 @Model.Value("shortCourseInformationHeading",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                fallback: Fallback.ToDefaultValue, defaultValue: "")
             </h2>
             <p>
-                @Model.Value("shortCourseInformation",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("shortCourseInformation")
             </p>
         </div>
         <div>
             <h2>
-                @Model.Value("availbleCoursesHeading",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("availbleCoursesHeading")
             </h2>
             <p>
-                @Model.Value("availbleCourses",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("availbleCourses")
             </p>
         </div>
         <div>
             <h2>
-                @Model.Value("priceInformationHeading",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("priceInformationHeading")
             </h2>
             <p>
-                @Model.Value("priceInformation",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("priceInformation")
             </p>
         </div>
         <div>
             <h2>
-                @Model.Value("moreCourseInformationHeading",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("moreCourseInformationHeading")
             </h2>
             <p>
-                @Model.Value("moreCourseInformation",
-                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+                @Model.Value("moreCourseInformation")
             </p>
         </div>
     </div>

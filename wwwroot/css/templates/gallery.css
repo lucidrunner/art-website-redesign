@@ -9,7 +9,7 @@
     justify-content: center;
 }
 
-.gallery-grid-item{
+.gallery-grid-item {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     max-width: 100%;
@@ -17,6 +17,7 @@
     border: 0;
     background-color: white;
 }
+
 
 .gallery-grid-item:hover {
     cursor: pointer;
@@ -31,6 +32,9 @@
     background-repeat: no-repeat;
 }
 
+    .gallery-grid-item-image:hover {
+        filter: contrast(125%);
+    }
 
 @media (min-width: 768px) {
     .gallery-grid-item {

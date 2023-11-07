@@ -34,30 +34,30 @@
     </div>
 
     <header class="header header--fixed">
+        <div class="header-container">
+            <div class="logo">
+                @if (home.SiteLogo != null && !string.IsNullOrEmpty(home.SiteLogo.Url()))
+                {
+                    <div class="nav-link--home">
+                        <img class="logo-image" src="@home.SiteLogo.Url()" alt="@home.Sitename">
+                    </div>
+                }
+                else
+                {
+                    <a class="nav-link nav-link--home nav-link--home__text logo-text" href="/">@home.Sitename</a>
+                }
+            </div>
 
-        <div class="logo">
-            @if (home.SiteLogo != null && !string.IsNullOrEmpty(home.SiteLogo.Url()))
-            {
-                <div class="nav-link--home">
-                    <img class="logo-image" src="@home.SiteLogo.Url()" alt="@home.Sitename">
+            <nav class="nav-bar top-nav">
+                @await Html.PartialAsync("~/Views/Partials/Navigation/TopNavigation.cshtml")
+            </nav>
+
+            <div class="mobile-nav-handler">
+                <div class="hamburger lines" id="toggle-nav">
+                    <span></span>
                 </div>
-            }
-            else
-            {
-                <a class="nav-link nav-link--home nav-link--home__text logo-text" href="/">@home.Sitename</a>
-            }
-        </div>
-
-        <nav class="nav-bar top-nav">
-            @await Html.PartialAsync("~/Views/Partials/Navigation/TopNavigation.cshtml")
-        </nav>
-
-        <div class="mobile-nav-handler">
-            <div class="hamburger lines" id="toggle-nav">
-                <span></span>
             </div>
         </div>
-
     </header>
 
     <main class="main-container">

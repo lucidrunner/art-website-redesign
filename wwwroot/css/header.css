@@ -3,7 +3,7 @@
 }
 
 .logo {
-    padding-left: 20px
+    /*padding-left: 20px*/
 }
 
 .logo-text:hover {
@@ -15,6 +15,7 @@
     color: var(--primary-100) !important;
     text-transform: none;
     letter-spacing: 0px;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 335px) {
@@ -48,13 +49,25 @@
 .header {
     padding-top: 50px;
     padding-bottom: 50px;
+    position: absolute;
+    width: 100%;
+    z-index: 4;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    position: absolute;
+    justify-content: center;
+
+}
+
+.header-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    z-index: 4
+    max-width: 1200px;
 }
 
 .header--fixed {
@@ -67,10 +80,7 @@
 }
 
     .header--fixed .nav-bar {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%)
+        white-space: nowrap;
     }
 
 .header--fixed {

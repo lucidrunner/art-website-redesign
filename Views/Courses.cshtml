@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Courses>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "master.cshtml";
+	var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+	var pageTitle = Model.PageTitle ?? string.Empty;
+}
+
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
+<section class="section">
+
+    <div class="container text-container">
+
+        <div>
+            @Model.Value("introdructionText",
+            fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+        </div>
+        <div>
+            <h2>
+                @Model.Value("shortCourseInformationHeading",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </h2>
+            <p>
+                @Model.Value("shortCourseInformation",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </p>
+        </div>
+        <div>
+            <h2>
+                @Model.Value("availbleCoursesHeading",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </h2>
+            <p>
+                @Model.Value("availbleCourses",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </p>
+        </div>
+        <div>
+            <h2>
+                @Model.Value("priceInformationHeading",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </h2>
+            <p>
+                @Model.Value("priceInformation",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </p>
+        </div>
+        <div>
+            <h2>
+                @Model.Value("moreCourseInformationHeading",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </h2>
+            <p>
+                @Model.Value("moreCourseInformation",
+                fallback: Fallback.ToDefaultValue, defaultValue: new HtmlString(""))
+            </p>
+        </div>
+    </div>
+
+</section>

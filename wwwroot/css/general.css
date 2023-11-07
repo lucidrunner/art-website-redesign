@@ -34,6 +34,11 @@ h2 {
     text-transform: uppercase
 }
 
+p, li {
+    line-height: 150%;
+    padding-top: var(--space-extra-small);
+}
+
 img {
     border: 0;
 }

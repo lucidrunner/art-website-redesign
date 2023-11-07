@@ -7,7 +7,21 @@
     var pageTitle = Model.PageTitle ?? string.Empty;
     bool testVariable = false;
 }
+@{
+    List<dynamic> getImages()
+    {
+        List<dynamic> collection = new();
+        foreach (dynamic galleryImage in Model.Children())
+        {
+            if (galleryImage.Technique == "Akvarell")
+            {
+                collection.Add(galleryImage);
+            }
+        }
 
+        return collection;
+    }
+}
 
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -20,8 +34,9 @@
 
 <section class ="container">
     <hr/>
+    <h2>Akvarell</h2>
     <div class="gallery-grid">
-        @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
+        @foreach (GalleryImage galleryImage in getImages())
         {
             <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
             {

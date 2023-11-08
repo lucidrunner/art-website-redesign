@@ -3,8 +3,16 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Contact>
 @{
     Layout = "master.cshtml";
+    var gallery = Model.Root().Children.OfType<GalleryPage>().FirstOrDefault().Children();
 }
+
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+@foreach (GalleryImage galleryImage in gallery)
+{
+    <p>@galleryImage.Titel</p>
+}
+
 <section class="section">
     <div class="container text-container">
 

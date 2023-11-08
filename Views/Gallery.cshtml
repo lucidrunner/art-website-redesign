@@ -1,13 +1,28 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.GalleryPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Atelje_Konstram.Utility
 @{
 	Layout = "master.cshtml";
     var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
     var pageTitle = Model.PageTitle ?? string.Empty;
     bool testVariable = false;
 }
+@{
+    List<dynamic> getImages()
+    {
+        List<dynamic> collection = new();
+        foreach (dynamic galleryImage in Model.Children())
+        {
+            if (galleryImage.Technique == "Akvarell")
+            {
+                collection.Add(galleryImage);
+            }
+        }
 
+        return collection;
+    }
+}
 
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -20,8 +35,12 @@
 
 <section class ="container">
     <hr/>
+    <h2>Akvarell</h2>
     <div class="gallery-grid">
-        @foreach (GalleryImage galleryImage in Model.Children<GalleryImage>())
+        @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
+            GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha
+        *@
+        @foreach (GalleryImage galleryImage in getImages())
         {
             <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
             {
@@ -44,6 +63,45 @@
         }
     </div>
 </section>
+@*Istället för foreach, gör en for och ge ID av varje section till "gallery-section-INDEX", sen kan vi använda scroll to nästa sektion *@
+@{
+    var list = GetTechniqueLists();
+}
+@for (int index = 0; index < list.Count; index++)
+{
+    LabeledCollection techniqueCollection = list[index];
+    <section id="gallery-section-@index" style="margin-block: 1.5rem;" class="container">
+        <hr/>
+        <h2 style="position: sticky; top: 5rem; width: 100%; margin: 0px; background-color: white;" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
+        <div class="gallery-grid">
+            @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
+            GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha
+        *@
+            @foreach (GalleryImage galleryImage in @techniqueCollection.Collection)
+            {
+                <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
+            {
+                title: '@galleryImage.Titel',
+                url: '@galleryImage.Image.Url()',
+                altText: '@galleryImage.AltText',
+                description: '@galleryImage.Beskrivning',
+                technique: '@galleryImage.Technique',
+                series: '@string.Join(", ", @galleryImage.Series)',
+                seriesTags: '@string.Join(", ", @galleryImage.Tags)',
+                width: '@galleryImage.Width',
+                height: '@galleryImage.Height',
+                availability: '@galleryImage.Availability',
+                miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
+
+            }
+            )">
+                    <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                </button>
+            }
+        </div>
+    </section>
+}
+
 
 <section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
@@ -81,6 +139,13 @@
 
 
 <script>
+    
+    function goToSection(index){
+        let nextSection = $("#gallery-section-" + index);
+        if (nextSection.get(0) !== undefined) {
+            $("#gallery-section-" + index).get(0).scrollIntoView();
+        }
+    }
 
     function showModal(imageObject){
         //Title
@@ -146,5 +211,34 @@
         $("#gallery-modal").off('click');
         $("#gallery-modal").hide();
     }
+    
+
 
 </script>
+
+@{
+
+    List<LabeledCollection> GetTechniqueLists()
+    {
+        
+        Dictionary<string, LabeledCollection> techniqueLists = new();
+
+        foreach (dynamic galleryImage in Model.Children())
+        {
+            string technique = galleryImage.Technique;
+            if (technique == null)
+                continue;
+
+            if (!techniqueLists.ContainsKey(technique))
+            {
+                techniqueLists[technique] = new LabeledCollection(technique);
+            }
+
+
+            techniqueLists[technique].Add(galleryImage);
+
+        }
+
+        return techniqueLists.Values.ToList();
+    }
+}

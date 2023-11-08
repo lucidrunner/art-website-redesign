@@ -5,7 +5,7 @@
     flex-direction: row;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    overflow: hidden;
+    overflow: visible;
     justify-content: center;
 }
 

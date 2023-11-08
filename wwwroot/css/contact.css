@@ -19,6 +19,8 @@
 
 .form-title{
     margin: 0 !important;
+    text-transform: none;
+    letter-spacing: 0.5px;
     /*color: white;*/
 }
 

@@ -1,4 +1,5 @@
-﻿@using Umbraco.SampleSite.Models
+﻿@using Atelje_Konstram.ViewModels;
+@using Umbraco.SampleSite.Models
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Contact>
 @{
@@ -16,12 +17,12 @@
             </div>
 
             <div class="col-md-6">
-                <h2>@Model.ContactFormHeader</h2>
-                @Model.ContactIntro
+                
                 @{
-                   await Html.RenderPartialAsync("Partials/ContactForm", new ContactFormViewModel());
+                    await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title="Test Title", PageInfo = "Test"});
                 }
             </div>
+         
 
         </div>
     </div>

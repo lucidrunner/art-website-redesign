@@ -70,9 +70,9 @@
 @for (int index = 0; index < list.Count; index++)
 {
     LabeledCollection techniqueCollection = list[index];
-    <section id="gallery-section-@index" class="container">
+    <section id="gallery-section-@index" style="margin-block: 1.5rem;" class="container">
         <hr/>
-        <h2 style="position: sticky; top: 5rem; width: 100%; background-color: white;" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
+        <h2 style="position: sticky; top: 5rem; width: 100%; margin: 0px; background-color: white;" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
         <div class="gallery-grid">
             @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
             GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha

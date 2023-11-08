@@ -1,0 +1,74 @@
+﻿.form-group {
+    border-radius: 5px;
+    background-color: var(--primary-50);
+    padding: 20px;
+    margin-inline: auto;
+    /*Bara för syns skull, lägg i container i templates!*/
+    max-width: 600px;
+
+}
+
+.form-title{
+    margin: 0 !important;
+}
+
+.form-pageinfo-container {
+    margin-block: 1rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-25);
+    border-radius: 5px;
+}
+
+.form-pageinfo{
+    width: 100%;
+}
+
+.form-message {
+    border-radius: 5px;
+    border: 1px solid var(--primary-100);
+    min-height: 12rem;
+}
+
+.form-email, .form-name{
+    height: 2.5rem;
+}
+
+.form-email, .form-name, .form-message {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--primary-100);
+    border-radius: 5px;
+    resize: vertical;
+    margin-top: 0.1rem;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.form-input-container {
+    margin-top: 10px;
+}
+
+.form-input-container label{
+    padding-left: 0.2rem;
+}
+
+.submit-button {
+    background-color: var(--primary-100);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  
+}
+
+
+    .submit-button:hover {
+        background-color: var(--primary-25);
+        color: var(--black-100);
+    }

@@ -1,6 +1,7 @@
-﻿@using Umbraco.Extensions
+﻿@using Atelje_Konstram.ViewModels;
+@using Umbraco.Extensions
 @using Umbraco.SampleSite.Controllers
-@model Umbraco.SampleSite.Models.ContactFormViewModel
+@model PageContactFormViewModel;
 
 @{
     var message = TempData["Message"]?.ToString();
@@ -8,22 +9,40 @@
 <div class="form-group">
 @using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.Submit)))
 {
-    <div>
-        @Html.TextBoxFor(m => m.Name, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Name)})
+    <h2 class="form-title">@Model.Title</h2>
+    <div class="form-input-container">
+        <label >Namn
+        @Html.TextBoxFor(m => m.Name, new {@class="form-control form-name", placeholder = "Namn och Efternamn"})    
+        </label>
         @Html.ValidationMessageFor(m => m.Name)
     </div>
-    <div>
-        @Html.TextBoxFor(m => m.Email, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Email)})
+        <div class="form-input-container">
+        <label>
+            Epost
+        @Html.TextBoxFor(m => m.Email, new {@class="form-control form-email", placeholder ="Epost" })
+        </label>
         @Html.ValidationMessageFor(m => m.Email)
     </div>
-    <div>
-        @Html.TextAreaFor(m => m.Message, new {@class="form-control", placeholder = Html.DisplayNameFor(m => m.Message)})
-        @Html.ValidationMessageFor(m => m.Message)
+    <div class="form-pageinfo-container">
+        <p class="form-pageinfo">
+            @Model.PageInfo
+        </p>
     </div>
-    <input type="submit" name="Submit" value="Submit"/>
+        <div class="form-input-container">
+        <label>
+            Meddelande
+        @Html.TextAreaFor(m => m.Message, new {@class="form-control form-message", placeholder = Html.DisplayNameFor(m => m.Message)})
+            </label>
+        @Html.ValidationMessageFor(m => m.Message)
+
+    </div>
+   <div class="submit-container">
+    <input class="submit-button" type="submit" name="Submit" value="Submit"/>  
    @if (!string.IsNullOrEmpty(message))
    {
        @message
    }
+   </div>
+ 
 }
 </div>

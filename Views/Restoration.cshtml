@@ -1,0 +1,62 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Restoration>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+    var pageTitle = Model.PageTitle ?? string.Empty;
+
+    List<dynamic> images = new List<dynamic>();
+    images.Add(Model.Par1);
+    images.Add(Model.Par2);
+    images.Add(Model.Par3);
+    images.Add(Model.Par4);
+
+    
+}
+
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
+
+
+<section class="section">
+    <div class="container text-container">
+        <div>
+            <article>
+                @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
+            </article>
+        </div>
+    </div>
+</section>
+
+@foreach (dynamic imagePair in images)
+{
+    if (imagePair.Count != 2)
+        continue;
+
+    var image1 = imagePair[0] as IPublishedContent;
+    var image2 = imagePair[1] as IPublishedContent;
+
+        
+    <section class="section">
+        <div class="container text-container">
+            <article>
+                <div class="restoration-image-row">
+                    <div class="restoration-image-container">
+                        <img class="restoration-image-fill" src="@image1.Url()"/>
+                        <p>Före</p>
+                    </div>
+                    <div class="restoration-image-container">
+                        <img class="restoration-image-fill" src="@image2.Url()"/>
+                        <p>Efter</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                </div>
+            </article>
+        </div>
+    </section>
+}
+
+
+<link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-blockgrid.css")" />

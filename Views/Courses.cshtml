@@ -20,17 +20,13 @@
                 @Model.Value("shortCourseInformationHeading",
                 fallback: Fallback.ToDefaultValue, defaultValue: "")
             </h2>
-            <p>
                 @Model.Value("shortCourseInformation")
-            </p>
         </div>
         <div>
             <h2>
                 @Model.Value("availbleCoursesHeading")
             </h2>
-            <p>
-                @Model.Value("availbleCourses")
-            </p>
+                @await Html.GetBlockGridHtmlAsync(Model, "availbleCourses")
         </div>
         <div>
             <h2>

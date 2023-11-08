@@ -1,0 +1,33 @@
+﻿.restoration-image-row {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+}
+
+.restoration-image-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
+
+.restoration-image-fill {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 678px) {
+    .restoration-image-row {
+        flex-direction: column;
+        height: fit-content;
+        gap: var(--space-extra-small)
+    }
+
+    .restoration-image-container {
+        height: 100%;
+        width: 100%;
+    }
+
+}

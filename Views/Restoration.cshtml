@@ -1,6 +1,7 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Restoration>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Atelje_Konstram.ViewModels;
 @{
     Layout = "master.cshtml";
     var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
@@ -12,6 +13,9 @@
     images.Add(Model.Par3);
     images.Add(Model.Par4);
 
+
+    var contactTitle = Model.ContactTitle ?? string.Empty;
+    var contactInfo = Model.ContactInfo ?? string.Empty;
     
 }
 
@@ -58,5 +62,13 @@
     </section>
 }
 
+<section class="container">
+    <hr />
+    <article class="contact-container">
+    @{
+        await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
+    }
+    </article>
+</section>
 
 <link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-blockgrid.css")" />

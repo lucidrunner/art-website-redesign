@@ -1,0 +1,123 @@
+﻿@using Atelje_Konstram.ViewModels;
+@using Umbraco.Extensions
+@using Umbraco.SampleSite.Controllers
+
+
+@{
+    var message = TempData["Message"]?.ToString();
+}
+<div class="form-group">
+
+    <h2 class="form-title">Anmäl dig</h2>
+    <div class="form-input-container">
+        <label>Förnamn och Efternamn
+         <input type="text" placeholder="Namn Namnsson"/>
+        </label>
+       
+    </div>
+        <div class="form-input-container">
+        <label>
+            Epost
+            <input type="email" placeholder="namn.namnsson@mejl.se"/>
+        </label>
+       
+    </div>
+         <div class="form-input-container">
+            <label>
+                Telefonnummer
+                <input type="tel"/>
+                </label>
+        </div>
+        <div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="course1" onClick="courseHandler()" />
+                1
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="2"/>
+                2
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="3"/>
+                3
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="1+2"/>
+                1 + 2
+            </label>
+        </div>
+        <div class="form-input-container" id="2+3">
+            <label>
+                <input type="radio" />
+                2 + 3
+            </label>
+        </div>
+    </div>
+
+    <label id="period 1"> Period 1
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+        </select>
+
+    </label>
+
+    <label id="period 2">
+        Period 2
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+        </select>
+
+    </label>
+
+    <label id="period 3">
+        Period 3
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+        </select>
+
+    </label>
+
+    <label id="period 1 + 2 ">
+        Period 1 + 2
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+        </select>
+
+    </label>
+
+    <label id="period 2 + 3">
+        Period 2 + 3
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
+        </select>
+
+    </label>
+
+   <div class="submit-container">
+    <input class="submit-button" type="submit" name="Submit" value="Submit"/>  
+   
+   </div>
+    <script>
+        function courseHandler() {
+            alert("Hej där!");
+        }
+    </script>
+</div>
+

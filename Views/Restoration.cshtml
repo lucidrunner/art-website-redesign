@@ -32,6 +32,8 @@
     </div>
 </section>
 
+<hr class="container"/>
+
 @foreach (dynamic imagePair in images)
 {
     if (imagePair.Count != 2)
@@ -47,13 +49,17 @@
                     <div class="image-grid-container image-col-2">
                         <div class="image-grid-item">
                             <img class="image-grid-item-image" src="@image1.Url()"/>
-                            <h3 class="image-grid-item-text">Före</h3>
+                            <div class="image-grid-item-text-line">
+                                <h3 class="image-grid-item-text">Före</h3>
+                            </div>
                         </div>
                     </div>
                     <div class="image-grid-container image-col-2">
                         <div class="image-grid-item">
                             <img class="image-grid-item-image" src="@image2.Url()"/>
-                            <h3 class="image-grid-item-text">Efter</h3>
+                            <div class="image-grid-item-text-line">
+                                <h3 class="image-grid-item-text">Efter</h3>
+                            </div>
                         </div>
                     </div>
                 </div>

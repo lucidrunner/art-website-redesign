@@ -41,16 +41,32 @@
     background-repeat: no-repeat;
 }
 
-.image-grid-item-text {
-    text-align: left;
+.image-grid-item-text-line {
     margin: 0;
+    width: 100%;
     padding: var(--space-small) var(--space-extra-small);
     position: absolute;
-    width: 100%;
     color: var(--black-100);
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(5px);
     bottom: 0;
+}
+
+.text-line-split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.image-grid-item-text {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
     font-weight: 400;
     font-size: 1.2rem;
 }

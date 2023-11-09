@@ -53,6 +53,8 @@
 
 </section>
 
+
+
 <section class="section image-section">
 
     <hr class="container" />
@@ -64,8 +66,11 @@
                 <div class="image-grid-container image-col-3">
                     <div class="image-grid-item">
                         <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
-                        <h3 class="gallery-grid-item-text">@galleryImage.Titel</h3>
-                    </div>
+                        <div class="image-grid-item-text-line text-line-split">
+                            <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
+                            <h3 class="image-grid-item-text text-right">@galleryImage.Technique</h3>
+                        </div>
+                        </div>
                 </div>
             }
         </div>

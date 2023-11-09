@@ -1,0 +1,15 @@
+﻿.comment-section{
+    width: 100%;
+    background-color: var(--primary-50);
+    padding-block: 2rem;
+}
+
+.comment-container{
+    margin: auto;
+    width: fit-content;
+    max-width: 500px;
+}
+
+.comment-author{
+    text-align: center;
+}

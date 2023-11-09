@@ -10,6 +10,13 @@
     int? portraitImage = Model.PortraettBild?.Id ?? null;
     int? restorationImage = Model.RestaureringBild?.Id ?? null;
     int? frameWorkshopImage = Model.RamverkstadBild?.Id ?? null;
+    
+    string commentOne =  Model.CommentOne;
+    string commentTwo  =  Model.CommentTwo;
+    string commentThree =  Model.CommentThree;
+    string commentFour =  Model.CommentFour;
+    string commentFive =  Model.CommentFive;
+
 }
 
 <section class="section section--half-height background-image-full overlay overlay--dark section--content-center"
@@ -71,3 +78,13 @@
     </div>
 
 </section>*@
+
+
+<section class="comment-section">
+    <div class="comment-container">
+        <p class="comment-text">"@commentOne"</p>
+        <p class="comment-author">@commentTwo</p>
+    </div>
+
+
+</section>

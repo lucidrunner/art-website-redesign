@@ -53,16 +53,19 @@
 
 </section>
 
-<section class="section">
+<section class="section image-section">
 
     <hr class="container" />
     <div class="container">
         <h2>Exempelporträtt</h2>
-        <div class="gallery-grid">
+        <div class="image-grid">
             @foreach (GalleryImage galleryImage in portraits)
             {
-                <div class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel">
-                    <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                <div class="image-grid-container image-col-3">
+                    <div class="image-grid-item">
+                        <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                        <h3 class="gallery-grid-item-text">@galleryImage.Titel</h3>
+                    </div>
                 </div>
             }
         </div>

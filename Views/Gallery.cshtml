@@ -30,13 +30,13 @@
         <hr/>
         <h2 class="gallery-section-title" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
         
-        <div class="gallery-grid">
+        <div class="image-grid">
             @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
             GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha
         *@
             @foreach (GalleryImage galleryImage in @techniqueCollection.Collection)
             {
-                <button class="gallery-grid-container" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
+                <button class="image-grid-container image-col-3" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
             {
                 title: '@galleryImage.Titel',
                 url: '@galleryImage.Image.Url()',
@@ -52,9 +52,9 @@
 
             }
             )">
-                    <div class="gallery-grid-item">
-                        <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
-                        <h3 class="gallery-grid-item-text">@galleryImage.Titel</h3>
+                    <div class="image-grid-item image-grid-hoverable">
+                        <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                        <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
                     </div>
                 </button>
             }

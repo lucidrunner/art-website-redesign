@@ -4,10 +4,16 @@
 
 .gallery-section-title {
     position: sticky;
-    top: 5rem;
+    top: 4.5rem;
     width: 100%;
+    
     margin: 0;
+    padding-block: 0.5rem;
+    
+    z-index: 3;
     background-color: white;
+    text-align: left;
+    line-height: 200%;
 }
 
 .gallery-grid {
@@ -19,13 +25,14 @@
     flex-wrap: wrap;
     overflow: visible;
     justify-content: center;
+    padding-inline: 0.75rem;
 }
 
 .gallery-grid-container {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     max-width: 100%;
-    padding-inline: var(--space-extra-small);
+    padding: 0 0.25rem;
     margin: 0;
     border: 0;
     background-color: white;

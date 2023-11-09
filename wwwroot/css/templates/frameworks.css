@@ -1,0 +1,9 @@
+﻿.frameworks-container {
+    margin-top: var(--space-small);
+    padding-top: var(--space-small);
+}
+
+.frameworks-container img{
+/*    max-width: 600px;
+    margin-inline: auto;*/
+}

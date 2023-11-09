@@ -7,21 +7,20 @@
 
 .form-group {
     border-radius: 5px;
-    /*Förslag: Typ en primary 10 eller black 10 här, lite för skrikigt med stark färg / Björn */
-    /*Förslag 2: Luta in i skrikigheten genom att sätta --primary-100 och vit text, ser helt ok ut*/
-    background-color: var(--primary-50);
-    /*border: 2px solid var(--primary-100);  möjligen border kan också hjälpa */
+    border: 2px solid var(--black-15);
+    
     padding: 20px;
     margin-inline: auto;
 
-
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
 .form-title{
     margin: 0 !important;
     text-transform: none;
     letter-spacing: 0.5px;
-    /*color: white;*/
 }
 
 .form-pageinfo-container {
@@ -49,7 +48,15 @@
 .form-email, .form-name, .form-message {
     width: 100%;
     padding: 12px;
-    border: 1px solid var(--primary-100);
+    border: 1.5px solid var(--black-50);
+    border-radius: 5px;
+    resize: vertical;
+    margin-top: 0.1rem;
+}
+.form-email:focus, .form-name:focus, .form-message:focus {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary-100);
     border-radius: 5px;
     resize: vertical;
     margin-top: 0.1rem;
@@ -67,7 +74,6 @@
 
 .form-input-container label{
     padding-left: 0.2rem;
-    /*color: white;*/
 }
 
 .submit-button {
@@ -84,4 +90,8 @@
     .submit-button:hover {
         background-color: var(--primary-25);
         color: var(--black-100);
+    }
+
+    .form-control{
+        color: black;
     }

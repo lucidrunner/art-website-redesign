@@ -11,15 +11,15 @@
 {
     <h2 class="form-title">@Model.Title</h2>
     <div class="form-input-container">
-        <label >Namn
-        @Html.TextBoxFor(m => m.Name, new {@class="form-control form-name", placeholder = "Namn och Efternamn"})    
+        <label >Förnamn och Efternamn
+        @Html.TextBoxFor(m => m.Name, new {@class="form-control form-name", placeholder = "Namn Namnsson"})    
         </label>
         @Html.ValidationMessageFor(m => m.Name)
     </div>
         <div class="form-input-container">
         <label>
             Epost
-        @Html.TextBoxFor(m => m.Email, new {@class="form-control form-email", placeholder ="Epost" })
+        @Html.TextBoxFor(m => m.Email, new {@class="form-control form-email", placeholder ="namn.namnsson@mejl.se" })
         </label>
         @Html.ValidationMessageFor(m => m.Email)
     </div>
@@ -31,7 +31,7 @@
         <div class="form-input-container">
         <label>
             Meddelande
-        @Html.TextAreaFor(m => m.Message, new {@class="form-control form-message", placeholder = Html.DisplayNameFor(m => m.Message)})
+        @Html.TextAreaFor(m => m.Message, new {@class="form-control form-message", placeholder = "Fyll i ditt meddelande..."})
             </label>
         @Html.ValidationMessageFor(m => m.Message)
 

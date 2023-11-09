@@ -4,32 +4,39 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Contact>
 @{
     Layout = "master.cshtml";
-    var gallery = Model.Root().Children.OfType<GalleryPage>().FirstOrDefault().Children();
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+    var pageTitle = Model.PageTitle ?? string.Empty;
+
+    var contactTitle = Model.ContactTitle ?? string.Empty;
+    var contactInfo = Model.ContactInfo ?? string.Empty;
 }
 
-@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
 
-@foreach (GalleryImage galleryImage in gallery)
-{
-    <p>@galleryImage.Titel</p>
-}
 
 <section class="section">
     <div class="container text-container">
 
         <div class="row">
             <div class="col-md-6">
+                @Model.Value("contactIntro")
+            </div>
+            <div class="col-md-6">
                 <h2>@Model.MapHeader</h2>
+                @Model.Value("adress")
                 @Model.MapCoordinates
 
             </div>
-
-            <div class="col-md-6">
+            <section class="container">
+                <hr />
+            <div class="contact-container">
                 
                 @{
-                    await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title="Test Title", PageInfo = "Test"});
+                    await Html.RenderPartialAsync("Partials/ContactForm", 
+                    new PageContactFormViewModel() { Title = @contactTitle, PageInfo = @contactInfo });
                 }
             </div>
+            </section>
          
 
         </div>

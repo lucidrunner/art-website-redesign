@@ -1,0 +1,69 @@
+﻿
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Frameworks>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Atelje_Konstram.ViewModels;
+@{
+	Layout = "master.cshtml";
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+    var pageTitle = Model.PageTitle ?? string.Empty;
+    
+    var contactTitle = Model.ContactTitle ?? string.Empty;
+    var contactInfo = Model.ContactInfo ?? string.Empty;
+
+    var ctaLinkText = Model.CtaText ?? string.Empty;
+}
+
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
+
+
+<section class="section">
+
+    <div class="container text-container">
+        
+        <div>
+            <article>
+                @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
+            </article>
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
+    <div class="container text-container">
+        <div class="cta-container">
+            <a href="#contact-form">@ctaLinkText</a>
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <hr class="container"/>
+
+    <div class="container text-container frameworks-container">
+
+        <div>
+            <article>
+                @await Html.GetBlockGridHtmlAsync(Model, "frames")
+            </article>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="container">
+    <hr />
+    <article id="contact-form" class="contact-container">
+    @{
+        await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
+    }
+    </article>
+</section>
+
+
+<link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-blockgrid.css")" />

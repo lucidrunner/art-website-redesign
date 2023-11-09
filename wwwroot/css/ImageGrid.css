@@ -35,7 +35,8 @@
 
 
 .image-grid-item-image {
-    height: fit-content;
+    /*height: fit-content;*/
+    
     width: 100%;
     object-fit: contain;
     background-repeat: no-repeat;
@@ -50,6 +51,7 @@
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(5px);
     bottom: 0;
+    left: 0;
 }
 
 .text-line-split {

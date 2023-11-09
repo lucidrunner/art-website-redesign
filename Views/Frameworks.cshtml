@@ -12,6 +12,12 @@
     var contactInfo = Model.ContactInfo ?? string.Empty;
 
     var ctaLinkText = Model.CtaText ?? string.Empty;
+
+    string getPriceString(int price)
+    {
+        return price.ToString() + "kr";
+    }
+    
 }
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -41,20 +47,24 @@
 
 <section class="section">
 
-    <hr class="container"/>
+    <hr class="container" />
 
-    <div class="container text-container frameworks-container">
-
-        <div>
-            <article>
-                @await Html.GetBlockGridHtmlAsync(Model, "frames")
-            </article>
-        </div>
+    <div class="container">
+        @foreach (ProductFrame frame in Model.Children())
+        {
+            <div class="image-grid-container image-col-2">
+                <div class="image-grid-item">
+                    <img class="image-grid-item-image" src='@frame.Image?.Url()' alt="@frame.Info"/>
+                    <div class="image-grid-item-text-line text-line-split">
+                        <h3 class="image-grid-item-text">@frame.Info</h3>
+                        <h3 class="image-grid-item-text text-right">@getPriceString(@frame.PriceInfo)</h3>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
 </section>
-
-
 
 <section class="container">
     <hr />

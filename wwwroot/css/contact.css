@@ -1,15 +1,27 @@
-﻿.form-group {
+﻿.contact-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+    margin-inline: auto;
+}
+
+.form-group {
     border-radius: 5px;
+    /*Förslag: Typ en primary 10 eller black 10 här, lite för skrikigt med stark färg / Björn */
+    /*Förslag 2: Luta in i skrikigheten genom att sätta --primary-100 och vit text, ser helt ok ut*/
     background-color: var(--primary-50);
+    /*border: 2px solid var(--primary-100);  möjligen border kan också hjälpa */
     padding: 20px;
     margin-inline: auto;
-    /*Bara för syns skull, lägg i container i templates!*/
-    max-width: 600px;
+
 
 }
 
 .form-title{
     margin: 0 !important;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    /*color: white;*/
 }
 
 .form-pageinfo-container {
@@ -55,6 +67,7 @@
 
 .form-input-container label{
     padding-left: 0.2rem;
+    /*color: white;*/
 }
 
 .submit-button {

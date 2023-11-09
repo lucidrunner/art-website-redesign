@@ -2,11 +2,13 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.GalleryPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Atelje_Konstram.Utility
+@using Atelje_Konstram.ViewModels
 @{
 	Layout = "master.cshtml";
-    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : string.Empty;
     var pageTitle = Model.PageTitle ?? string.Empty;
-    bool testVariable = false;
+    var contactTitle = Model.ContactTitle ?? string.Empty;
+    var contactInfo = Model.ContactInfo ?? string.Empty;
 }
 @{
     List<dynamic> getImages()
@@ -102,6 +104,14 @@
     </section>
 }
 
+<section class="container">
+    <hr />
+    <article class="contact-container">
+    @{
+        await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
+    }
+    </article>
+</section>
 
 <section id="gallery-modal" class="gallery-modal-overlay">
     <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">

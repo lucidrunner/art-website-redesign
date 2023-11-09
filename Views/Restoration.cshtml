@@ -32,6 +32,8 @@
     </div>
 </section>
 
+<hr class="container"/>
+
 @foreach (dynamic imagePair in images)
 {
     if (imagePair.Count != 2)
@@ -41,24 +43,30 @@
     var image2 = imagePair[1] as IPublishedContent;
 
         
-    <section class="section">
-        <div class="container text-container">
-            <article>
-                <div class="restoration-image-row">
-                    <div class="restoration-image-container">
-                        <img class="restoration-image-fill" src="@image1.Url()"/>
-                        <p>Före</p>
+    <section class="section image-section">
+        <article class="container">
+                <div class="image-grid">
+                    <div class="image-grid-container image-col-2">
+                        <div class="image-grid-item">
+                            <img class="image-grid-item-image" src="@image1.Url()"/>
+                            <div class="image-grid-item-text-line">
+                                <h3 class="image-grid-item-text">Före</h3>
+                            </div>
+                        </div>
                     </div>
-                    <div class="restoration-image-container">
-                        <img class="restoration-image-fill" src="@image2.Url()"/>
-                        <p>Efter</p>
+                    <div class="image-grid-container image-col-2">
+                        <div class="image-grid-item">
+                            <img class="image-grid-item-image" src="@image2.Url()"/>
+                            <div class="image-grid-item-text-line">
+                                <h3 class="image-grid-item-text">Efter</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                 </div>
-            </article>
-        </div>
+        </article>
     </section>
 }
 

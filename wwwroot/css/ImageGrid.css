@@ -1,0 +1,111 @@
+﻿.image-section {
+    margin-block: 1.5rem;
+}
+
+.image-grid {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: center;
+    padding-inline: 0.75rem;
+}
+
+.image-grid-container {
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 0.5rem 0.25rem;
+    margin: 0;
+    border: 0;
+    background-color: white;
+}
+
+.image-grid-item {
+    position: relative;
+    border: 0;
+    width: 100%;
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+}
+
+
+.image-grid-item-image {
+    height: fit-content;
+    width: 100%;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+
+.image-grid-item-text-line {
+    margin: 0;
+    width: 100%;
+    padding: var(--space-small) var(--space-extra-small);
+    position: absolute;
+    color: var(--black-100);
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    bottom: 0;
+}
+
+.text-line-split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.image-grid-item-text {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.image-grid-hoverable:hover {
+    cursor: pointer;
+    outline: 2px solid white;
+    transform: scale(0.995);
+}
+
+@media (min-width: 768px) {
+    .image-col-2, .image-col-3 {
+        -ms-flex: 1 1 50%;
+        flex: 1 1 50%;
+        max-width: 50%;
+        padding: 0.5rem 0.5rem;
+    }
+
+
+    .image-grid-item-image {
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+        object-position: 50%;
+    }
+
+}
+
+
+@media (min-width:1200px) {
+
+    .image-col-3 {
+        -ms-flex: 1 1 33%;
+        flex: 1 1 33%;
+        max-width: 33%
+    }
+
+
+    .image-grid {
+        margin-inline: auto;
+    }
+}

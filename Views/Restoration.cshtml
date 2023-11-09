@@ -16,6 +16,7 @@
 
     var contactTitle = Model.ContactTitle ?? string.Empty;
     var contactInfo = Model.ContactInfo ?? string.Empty;
+    var ctaLinkText = Model.CtaText ?? string.Empty;
     
 }
 
@@ -29,6 +30,12 @@
                 @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
             </article>
         </div>
+    </div>
+</section>
+
+<section class="section container cta-section">
+    <div class="cta-container">
+        <a href="#contact-form">@ctaLinkText</a>
     </div>
 </section>
 
@@ -73,9 +80,10 @@
 <section class="container">
     <hr />
     <article class="contact-container">
-    @{
+        <div class="contact-anchor" id="contact-form"></div>
+        @{
         await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
-    }
+        }
     </article>
 </section>
 

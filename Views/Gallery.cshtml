@@ -9,6 +9,7 @@
     var pageTitle = Model.PageTitle ?? string.Empty;
     var contactTitle = Model.ContactTitle ?? string.Empty;
     var contactInfo = Model.ContactInfo ?? string.Empty;
+    var ctaLinkText = Model.CtaText ?? string.Empty;
 }
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -17,6 +18,12 @@
     <article>
         @await Html.GetBlockGridHtmlAsync(Model, "galleryText")
     </article>
+</section>
+
+<section class="section container cta-section">
+    <div class="cta-container">
+        <a href="#contact-form">@ctaLinkText</a>
+    </div>
 </section>
 
 @*Istället för foreach, gör en for och ge ID av varje section till "gallery-section-INDEX", sen kan vi använda scroll to nästa sektion *@
@@ -67,9 +74,10 @@
 <section class="container">
     <hr />
     <article class="contact-container">
-    @{
+        <div class="contact-anchor" id="contact-form"></div>
+        @{
         await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
-    }
+        }
     </article>
 </section>
 

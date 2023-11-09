@@ -4,14 +4,15 @@
     -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
+.cta-section {
+    padding-inline: 20px;
+}
+
 .cta-container {
     max-width: 620px;
     margin: auto;
 }
 
-/*TODO HItta rätt breakpoint */
-@media only screen and (max-width:600px){
-    .cta-container {
-        padding: 20px;
-    }
+.cta-container a {
+    font-family: Source Sans Pro, sans-serif !important;
 }

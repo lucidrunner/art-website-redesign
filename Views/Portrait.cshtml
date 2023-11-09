@@ -1,0 +1,85 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Portrait>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Atelje_Konstram.ViewModels;
+@{
+    Layout = "master.cshtml";
+    var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
+    var pageTitle = Model.PageTitle ?? string.Empty;
+    
+    var contactTitle = Model.ContactTitle ?? string.Empty;
+    var contactInfo = Model.ContactInfo ?? string.Empty;
+
+    var ctaLinkText = Model.CtaText ?? string.Empty;
+
+
+    var galleryImages = Model.Root().Children.OfType<GalleryPage>().FirstOrDefault().Children();
+    List<GalleryImage> portraits = new();
+    
+    foreach(dynamic image in galleryImages)
+    {
+        if (image.UseAsPortrait == true)
+        {
+            // portraits.Add(image);
+            // portraits.Add(image);
+            // portraits.Add(image);
+            portraits.Add(image);
+        }
+    }
+}
+
+@await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
+
+
+<section class="section">
+
+    <div class="container text-container">
+        
+        <div>
+            <article>
+                @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
+            </article>
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
+    <div class="container text-container">
+        <div class="cta-container">
+            <a href="#contact-form">@ctaLinkText</a>
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <hr class="container" />
+    <div class="container">
+        <h2>Exempelporträtt</h2>
+        <div class="gallery-grid">
+            @foreach (GalleryImage galleryImage in portraits)
+            {
+                <div class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel">
+                    <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="container" id="contact-form">
+    <hr />
+    <article class="contact-container">
+        @{
+            await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
+        }
+    </article>
+</section>
+
+
+<link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-blockgrid.css")" />

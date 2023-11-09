@@ -1,4 +1,16 @@
-﻿.gallery-grid {
+﻿.gallery-section {
+    margin-block: 1.5rem;
+}
+
+.gallery-section-title {
+    position: sticky;
+    top: 5rem;
+    width: 100%;
+    margin: 0;
+    background-color: white;
+}
+
+.gallery-grid {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
@@ -9,43 +21,66 @@
     justify-content: center;
 }
 
-.gallery-grid-item {
+.gallery-grid-container {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     max-width: 100%;
-    padding: 0.15rem 0.7rem;
+    padding-inline: var(--space-extra-small);
+    margin: 0;
     border: 0;
     background-color: white;
 }
 
-
-.gallery-grid-item:hover {
-    cursor: pointer;
+.gallery-grid-item {
+    position: relative;
+    border: 0;
+    width: 100%;
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
 
+
+    .gallery-grid-item:hover {
+        cursor: pointer;
+        outline: 2px solid white;
+        transform: scale(0.995);
+    }
+    
 
 .gallery-grid-item-image {
     height: fit-content;
     width: 100%;
     object-fit: contain;
     background-repeat: no-repeat;
-    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
-    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
-    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
+/*
+    .gallery-grid-item-image:hover {
+        border: 2px solid white;
+    }*/
 
-.gallery-grid-item-image:hover {
-    border: 2px solid white;
+.gallery-grid-item-text {
+    text-align: left;
+    margin: 0;
+    padding: var(--space-small) var(--space-extra-small);
+    position: absolute;
+    width: 100%;
+    color: var(--black-100);
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    bottom: 0;
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 
 @media (min-width: 768px) {
-    .gallery-grid-item {
+    .gallery-grid-container {
         -ms-flex: 1 1 50%;
         flex: 1 1 50%;
         max-width: 50%;
-        padding: 0.15rem 0.3rem;
+        /*padding: 0.15rem 0.3rem;*/
     }
     
 
@@ -60,7 +95,7 @@
 
 @media (min-width:1200px) {
 
-    .gallery-grid-item{
+    .gallery-grid-container{
         -ms-flex: 1 1 33%;
         flex: 1 1 33%;
         max-width: 33%

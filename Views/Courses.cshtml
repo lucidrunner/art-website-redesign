@@ -12,32 +12,35 @@
 
     <div class="container text-container">
 
-        <div>
+        <div class="courses-div">
             @Model.Value("introdructionText")
         </div>
-        <div>
-            <h2>
+        <div class="courses-div">
+            <h2 class="courses-text-center">
                 @Model.Value("shortCourseInformationHeading",
                 fallback: Fallback.ToDefaultValue, defaultValue: "")
             </h2>
                 @Model.Value("shortCourseInformation")
         </div>
-        <div>
-            <h2>
+        <div class="courses-div">
+            <h2 class="courses-text-center">
                 @Model.Value("availbleCoursesHeading")
             </h2>
+            <div class="courses-center">
                 @await Html.GetBlockGridHtmlAsync(Model, "availbleCourses")
+            </div>
+                
         </div>
-        <div>
-            <h2>
+        <div class="courses-div">
+            <h2 class="courses-text-center">
                 @Model.Value("priceInformationHeading")
             </h2>
             <p>
                 @Model.Value("priceInformation")
             </p>
         </div>
-        <div>
-            <h2>
+        <div class="courses-div">
+            <h2 class="courses-text-center">
                 @Model.Value("moreCourseInformationHeading")
             </h2>
             <p>

@@ -8,12 +8,19 @@
     width: 100%;
     
     margin: 0;
-    padding-block: 0.5rem;
-    
+    padding: 0.5rem 0.8rem;
+    font-size: 1.4rem;
     z-index: 3;
     background-color: white;
     text-align: left;
     line-height: 200%;
+}
+
+
+@media (min-width: 768px) {
+    .gallery-section-title {
+        font-size: 1.6rem;
+    }
 }
 
 /* MODAL */

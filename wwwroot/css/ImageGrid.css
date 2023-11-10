@@ -18,7 +18,7 @@
     -ms-flex: 1 1 100%;
     flex: 1 1 100%;
     max-width: 100%;
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 0;
     margin: 0;
     border: 0;
     background-color: white;
@@ -45,7 +45,7 @@
 .image-grid-item-text-line {
     margin: 0;
     width: 100%;
-    padding: var(--space-small) var(--space-extra-small);
+    padding: var(--space-extra-small) var(--space-extra-small);
     position: absolute;
     color: var(--black-100);
     background-color: rgba(255, 255, 255, 0.6);
@@ -70,7 +70,7 @@
     text-align: left;
     width: 100%;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .image-grid-hoverable:hover {
@@ -80,6 +80,11 @@
 }
 
 @media (min-width: 768px) {
+
+    .image-grid-container {
+        padding: 0.5rem 0.25rem;
+    }
+    
     .image-col-2, .image-col-3 {
         -ms-flex: 1 1 50%;
         flex: 1 1 50%;
@@ -93,6 +98,14 @@
         width: 100%;
         object-fit: cover;
         object-position: 50%;
+    }
+
+    .image-grid-item-text-line {
+        padding: var(--space-small) var(--space-extra-small);
+    }
+
+    .image-grid-item-text {
+        font-size: 1.2rem;
     }
 
 }

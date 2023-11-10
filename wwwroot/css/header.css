@@ -2,10 +2,6 @@
     font-family: Playfair Display, serif;
 }
 
-.logo {
-    /*padding-left: 20px*/
-}
-
 .logo-text:hover {
     border-bottom-color: var(--primary-100) !important;
 }

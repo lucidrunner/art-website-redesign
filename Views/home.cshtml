@@ -36,53 +36,34 @@
 <section class="container cardmenu">
     <div class="row">
         <div class="col-xs-12">
-            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = @artgalleryImage, label = "Konstgalleri", url = "konstgalleri" })
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
+            new { thumbnail = @artgalleryImage, label = "Galleri", url = "galleri" })
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = @coursesImage, label = "Kurser", url = "kurser" })
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
+            new { thumbnail = @coursesImage, label = "Kurser", url = "kurser" })
         </div>
 
         <div class="col-xs-12 col-md-6">
-            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = @portraitImage, label = "Porträtt", url = "portraett" })
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
+            new { thumbnail = @portraitImage, label = "Porträtt", url = "portraett" })
         </div>
     </div>
     
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = @restorationImage, label = "Restaurering", url = "restaurering" })
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
+            new { thumbnail = @restorationImage, label = "Restaurering", url = "restaurering" })
         </div>
 
         <div class="col-xs-12 col-md-6">
-            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", new { thumbnail = @frameWorkshopImage, label = "Ramverkstad", url = "ramverkstad" })
+            @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
+            new { thumbnail = @frameWorkshopImage, label = "Ramar", url = "ramar" })
         </div>
     </div>
 </section>
-@*
-<section class="section section">
-    @await Html.GetBlockGridHtmlAsync(Model, "bodyText")
-</section>*@
-@*
-<section class="section section--themed">
-
-    <div class="container">
-        <div class="row">
-
-            <div class="ta-center">
-                <h2>@Model.FooterHeader</h2>
-                <p class="section__description mw-640 ma-h-auto">@Model.FooterDescription</p>
-
-                <a class="button button--border--light_solid" href="@Model.FooterCtalink.Url()">
-                    @Model.FooterCtacaption
-                </a>
-
-            </div>
-
-        </div>
-    </div>
-
-</section>*@
 
 <div class="main-gallery">
     <div class="gallery-cell">
@@ -116,13 +97,4 @@
         </div>
     </div>
 </div>
-
-@* <section class="comment-section">
-    <div class="comment-container">
-        <p class="comment-text">"@commentOne"</p>
-        <p class="comment-author">@commentTwo</p>
-    </div>
-
-
- *@</section>
 

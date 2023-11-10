@@ -781,7 +781,7 @@ body.fixed .top-nav.-open {
 
 .nav-link, .nav-link:visited {
     text-decoration: none;
-    margin: 10px 15px;
+    margin: 12px 12px;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -1173,7 +1173,7 @@ body.frontpage .section__hero-content {
     }
 }
 
-@media (min-width:992px) {
+@media (min-width:993px) {
     .container {
         width: 970px
     }
@@ -1387,8 +1387,8 @@ body.frontpage .section__hero-content {
     }
 
     .nav-link, .nav-link:visited {
-        margin-left: 15px;
-        margin-right: 15px
+        margin-left: 12px;
+        margin-right: 12px
     }
 
     .button, .button--small {

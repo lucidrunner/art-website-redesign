@@ -36,7 +36,18 @@
     LabeledCollection techniqueCollection = list[index];
     <section id="gallery-section-@index" class="gallery-section container">
         <hr/>
-        <h2 class="gallery-section-title" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
+        <div class="gallery-section-title-container">
+            <h2 class="gallery-section-title" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
+                <div>
+            @if(index!=0)
+            {
+                <button class="btn-gallery-jump" onclick="goToSection(@index-1)" aria-label="Gå till tidigare sektion">↑</button>
+            }
+                
+                    <button class="btn-gallery-jump" onclick="goToSection(@index+1)" aria-label=" Gå till nästa sektion">↓</button>
+                </div>
+        </div>
+        
         
         <div class="image-grid">
             @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
@@ -78,7 +89,10 @@
 
 <section id="gallery-section-@techniqueCount" class="gallery-section container">
     <hr />
-    <h2 class="gallery-section-title" onclick="goToContactForm()">Just nu</h2>
+    <div class="gallery-section-title-container">
+        <h2 class="gallery-section-title" onclick="goToContactForm()">Just nu</h2>
+        <button class="btn-gallery-jump" onclick="goToSection(@techniqueCount-1)" aria-label="Gå till tidigare sektion">↑</button>
+    </div>
     <div class="image-grid">
         @foreach(LabeledCollection availableType in availableArt)
         {

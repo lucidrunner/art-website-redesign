@@ -38,3 +38,8 @@
     margin-top: 2rem;
     display: block;
 }
+.form-input-container input[type="checkbox"] {
+    vertical-align: middle;
+    position: relative;
+    bottom: 0.2rem;
+}

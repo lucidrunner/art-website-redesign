@@ -1,0 +1,208 @@
+﻿@using Atelje_Konstram.ViewModels;
+@using Umbraco.Extensions
+@using Umbraco.SampleSite.Controllers
+
+
+@{
+    var message = TempData["Message"]?.ToString();
+}
+<form class="form-group">
+
+    <h2 class="form-title">Anmäl dig</h2>
+    <h3>Personuppgifter</h3>
+    <div>
+        <div class="form-input-container">
+            <label>Förnamn och Efternamn
+                <input type="text" placeholder="Namn Namnsson" class="course-form-text-input" required />
+            </label>
+       
+        </div>
+            <div class="form-input-container">
+            <label>
+                Epost
+                <input type="email" placeholder="namn.namnsson@mejl.se" class="course-form-text-input" required />
+            </label>
+       
+        </div>
+         <div class="form-input-container">
+            <label>
+                Telefonnummer (ex: +46 123 456 7890)
+                <input type="tel" class="course-form-text-input"
+                       pattern=^([+]46)\s*(\d{3})\s*(\d{3})\s*(\d{4})$ required
+                       placeholder="+46 123 456 7890" />
+            </label>
+        </div>
+        
+    </div>
+    <div>
+        <span class="course-form-divider-line" aria-hidden="true"></span>
+        <h3>Kurstillfälle</h3>
+        <p>Välj kursperiod</p>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="1" name="coursePeriodRadioButton"
+                       onClick="hideAllExceptTarget('period 1')" required />
+                Kursperiod 1
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="2" name="coursePeriodRadioButton"
+                       onClick="hideAllExceptTarget('period 2')"   />
+                Kursperiod 2
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="3" name="coursePeriodRadioButton"
+                       onClick="hideAllExceptTarget('period 3')" />
+                Kursperiod 3
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="1+2" name="coursePeriodRadioButton"
+                       onClick="hideAllExceptTarget('period 1 + 2')" />
+                Kursperiod 1 & 2 (sammanhängande)
+            </label>
+        </div>
+        <div class="form-input-container">
+            <label>
+                <input type="radio" id="2+3" name="coursePeriodRadioButton"
+                       onClick="hideAllExceptTarget('period 2 + 3')" />
+                Kursperiod 2 & 3 (sammanhängande)
+            </label>
+        </div>
+    </div>
+
+    <label id="period 1" class="hidden form-input-container">
+        Välj kurs i Period 1
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger - 2 950 kr</option>
+            <option>Måndagskvällar 15 jan - 19 feb, 6 gånger - 2 950 kr</option>
+            <option>Tisdagseftermiddagar 16 jan - 20 feb, 6 gånger - 2 950 kr</option>
+            <option>Tisdagskvällar 16 jan - 20 feb, 6 gånger - 2 950 kr</option>
+            <option>Onsdagseftermiddagar 17 jan - 21 feb, 6 gånger - 2 950 kr</option>
+            <option>Onsdagskvällar 17 jan - 21 feb, 6 gånger - 2 950 kr</option>
+            <option>Torsdagseftermiddagar 18 jan - 22 feb, 6 gånger - 2 950 kr</option>
+            <option>Torsdagskvällar 18 jan - 22 feb, 6 gånger - 2 950 kr</option>
+        </select>
+
+    </label>
+
+    <label id="period 2" class="hidden form-input-container">
+        Välj kurs i Period 2
+        <select>
+            <option>Måndagseftermiddagar 4 mar - 15 apr, 6 gånger - 2 950 kr</option>
+            <option>Måndagskvällar 4 mar - 15 apr, 6 gånger - 2 950 kr</option>
+            <option>Tisdagseftermiddagar 5 mar - 16 apr, 6 gånger - 2 950 kr</option>
+            <option>Tisdagskvällar 5 mar - 16 apr, 6 gånger - 2 950 kr</option>
+            <option>Onsdagseftermiddagar 6 mar - 17 apr, 6 gånger - 2 950 kr</option>
+            <option>Onsdagskvällar 6 mar - 17 apr, 6 gånger - 2 950 kr</option>
+            <option>Torsdagseftermiddagar 8 mar - 18 apr, 6 gånger - 2 950 kr</option>
+            <option>Torsdagskvällar 8 mar - 18 apr, 6 gånger - 2 950 kr</option>
+        </select>
+
+    </label>
+
+    <label id="period 3" class="hidden form-input-container">
+        Välj kurs i Period 3
+        <select>
+            <option>Måndagseftermiddagar 22 apr - 27 maj, 6 gånger - 2 950 kr</option>
+            <option>Måndagskvällar 22 apr - 27 maj, 6 gånger - 2 950 kr</option>
+            <option>Tisdagseftermiddagar 23 apr - 28 maj, 6 gånger - 2 950 kr</option>
+            <option>Tisdagskvällar 23 apr - 28 maj, 6 gånger - 2 950 kr</option>
+            <option>Onsdagseftermiddagar 24 apr - 29 maj, 5 gånger - 2 450 kr</option>
+            <option>Onsdagskvällar 24 apr - 29 maj, 5 gånger - 2 450 kr</option>
+            <option>Torsdagseftermiddagar 25 apr - 30 maj, 5 gånger - 2 450 kr</option>
+            <option>Torsdagskvällar 25 apr - 30 maj, 5 gånger - 2 450 kr</option>
+        </select>
+
+    </label>
+
+    <label id="period 1 + 2" class="hidden form-input-container">
+        Välj kurs i Period 1 & 2
+        <select>
+            <option>Måndagseftermiddagar 15 jan - 15 apr, 12 gånger - 4 500 kr</option>
+            <option>Måndagskvällar 15 jan - 15 apr, 12 gånger - 4 500 kr</option>
+            <option>Tisdagseftermiddagar 16 jan - 16 apr, 12 gånger - 4 500 kr</option>
+            <option>Tisdagskvällar 16 jan - 16 apr, 12 gånger - 4 500 kr</option>
+            <option>Onsdagseftermiddagar 17 jan - 17 apr, 12 gånger - 4 500 kr</option>
+            <option>Onsdagskvällar 17 jan - 17 apr, 12 gånger - 4 500 kr</option>
+            <option>Torsdagseftermiddagar 18 jan - 18 apr, 12 gånger - 4 500 kr</option>
+            <option>Torsdagskvällar 18 jan - 18 apr, 12 gånger - 4 500 kr</option>
+        </select>
+
+    </label>
+
+    <label id="period 2 + 3" class="hidden form-input-container">
+        Välj kurs i Period 2 & 3
+        <select>
+            <option>Måndagseftermiddagar 4 mar - 27 maj, 12 gånger - 4 500 kr</option>
+            <option>Måndagskvällar 4 mar - 27 maj, 12 gånger - 4 500 kr</option>
+            <option>Tisdagseftermiddagar 5 mar - 28 maj, 12 gånger - 4 500 kr</option>
+            <option>Tisdagskvällar 5 mar - 28 maj, 12 gånger - 4 500 kr</option>
+            <option>Onsdagseftermiddagar 6 mar - 29 maj, 11 gånger - 4 125 kr</option>
+            <option>Onsdagskvällar 6 mar - 29 maj, 11 gånger - 4 125 kr</option>
+            <option>Torsdagseftermiddagar 7 mar - 30 maj, 11 gånger - 4 125 kr</option>
+            <option>Torsdagskvällar 7 mar - 30 maj, 11 gånger - 4 125 kr</option>
+        </select>
+
+    </label>
+    <span class="course-form-divider-line" aria-hidden="true"></span>
+    <h3>Övrigt</h3>
+    <p>Välj teknik att börja med</p>
+    <div class="form-input-container">
+        <label>
+            <input type="radio" id="olja" name="mediumRadioButton" required />
+            Olja (75 kr per 6 kurstillfällen)
+        </label>
+    </div>
+    <div class="form-input-container">
+        <label>
+            <input type="radio" id="akryl" name="mediumRadioButton" />
+            Akryl (50 kr per 6 kurstillfällen)
+        </label>
+    </div>
+    <div class="form-input-container">
+        <label>
+            <input type="radio" id="akvarell" name="mediumRadioButton" />
+            Akvarell (25 kr per 6 kurstillfällen)
+        </label>
+    </div>
+    <div class="form-input-container">
+        <label>
+            <input type="radio" id="teckning" name="mediumRadioButton" />
+            Kol/Teckning
+        </label>
+    </div>
+
+    <div class="form-input-container">
+        <label class="course-form-checkbox-label">
+            <input type="checkbox" />
+            Jag har varit på kurs hos Jasmin tidigare
+        </label>
+    </div>
+
+   <div class="submit-container">
+    <input class="submit-button" type="submit" name="Submit" value="Submit"/>  
+   
+   </div>
+    <script>
+        function hideAllExceptTarget(targetId) {
+            var visibleElements = document.querySelectorAll('.visible');
+            var target = document.getElementById(targetId);
+
+            visibleElements.forEach(element => {
+                if (!(target === element)) {
+                    element.classList.remove('visible');
+                    element.classList.add('hidden');
+                }
+                });
+
+            target.classList.remove('hidden');
+            target.classList.add('visible');
+        }
+    </script>
+</form>
+

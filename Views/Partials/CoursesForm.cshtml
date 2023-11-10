@@ -31,37 +31,42 @@
         <div>
         <div class="form-input-container">
             <label>
-                <input type="radio" id="course1" onClick="courseHandler()" />
+                <input type="radio" id="1" name="coursePeriod"
+                       onClick="hideAllExceptTarget('period 1')" />
                 1
             </label>
         </div>
         <div class="form-input-container">
             <label>
-                <input type="radio" id="2"/>
+                <input type="radio" id="2" name="coursePeriod"
+                       onClick="hideAllExceptTarget('period 2')"   />
                 2
             </label>
         </div>
         <div class="form-input-container">
             <label>
-                <input type="radio" id="3"/>
+                <input type="radio" id="3" name="coursePeriod"
+                       onClick="hideAllExceptTarget('period 3')" />
                 3
             </label>
         </div>
         <div class="form-input-container">
             <label>
-                <input type="radio" id="1+2"/>
+                <input type="radio" id="1+2" name="coursePeriod" 
+                    onClick="hideAllExceptTarget('period 1 + 2')" />
                 1 + 2
             </label>
         </div>
-        <div class="form-input-container" id="2+3">
+        <div class="form-input-container">
             <label>
-                <input type="radio" />
+                <input type="radio" id="2+3" name="coursePeriod"
+                       onClick="hideAllExceptTarget('period 2 + 3')" />
                 2 + 3
             </label>
         </div>
     </div>
 
-    <label id="period 1"> Period 1
+    <label id="period 1" class="hidden" name="radioButton"> Period 1
         <select>
             <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
             <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
@@ -70,7 +75,7 @@
 
     </label>
 
-    <label id="period 2">
+    <label id="period 2" class="hidden" name="radioButton">
         Period 2
         <select>
             <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
@@ -80,7 +85,7 @@
 
     </label>
 
-    <label id="period 3">
+    <label id="period 3" class="hidden">
         Period 3
         <select>
             <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
@@ -90,7 +95,7 @@
 
     </label>
 
-    <label id="period 1 + 2 ">
+    <label id="period 1 + 2" class="visible">
         Period 1 + 2
         <select>
             <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
@@ -100,7 +105,7 @@
 
     </label>
 
-    <label id="period 2 + 3">
+    <label id="period 2 + 3" class="hidden">
         Period 2 + 3
         <select>
             <option>Måndagseftermiddagar 15 jan - 19 feb, 6 gånger</option>
@@ -115,8 +120,19 @@
    
    </div>
     <script>
-        function courseHandler() {
-            alert("Hej där!");
+        function hideAllExceptTarget(id) {
+            var visibleElements = document.querySelectorAll('.visible');
+            var target = document.getElementById(id);
+
+            visibleElements.forEach(element => {
+                if (!(target === element)) {
+                    element.classList.remove('visible');
+                    element.classList.add('hidden');
+                }
+                });
+
+            target.classList.remove('hidden');
+            target.classList.add('visible');
         }
     </script>
 </div>

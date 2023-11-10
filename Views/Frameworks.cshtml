@@ -13,11 +13,6 @@
 
     var ctaLinkText = Model.CtaText ?? string.Empty;
 
-    string getPriceString(int price)
-    {
-        return price.ToString() + "kr";
-    }
-    
 }
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -42,18 +37,18 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section image-section container">
 
-    <hr class="container" />
-
-    <div class="container image-grid">
+    <hr />
+    <h2 class="image-section-title">Tidigare beställningar</h2>
+    <article class="image-grid">
         @foreach (ProductFrame frame in Model.Children())
         {
             <div class="image-grid-container image-col-2">
                 <img class="image-grid-item-image image-grid-item" src='@frame.Image?.Url()' alt="@frame.Name"/>
             </div>
         }
-    </div>
+    </article>
 
 </section>
 

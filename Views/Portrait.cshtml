@@ -52,26 +52,24 @@
 
 
 
-<section class="section image-section">
+<section class="section image-section container">
 
-    <hr class="container" />
-    <div class="container">
-        <h2>Exempelporträtt</h2>
-        <div class="image-grid">
-            @foreach (GalleryImage galleryImage in portraits)
-            {
-                <div class="image-grid-container image-col-3">
-                    <div class="image-grid-item">
-                        <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
-                        <div class="image-grid-item-text-line text-line-split">
-                            <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
-                            <h3 class="image-grid-item-text text-right">@galleryImage.Technique</h3>
-                        </div>
-                        </div>
-                </div>
-            }
-        </div>
-    </div>
+    <hr />
+    <h2 class="image-section-title">Exempelporträtt</h2>
+    <article class="image-grid">
+        @foreach (GalleryImage galleryImage in portraits)
+        {
+            <div class="image-grid-container image-col-3">
+                <div class="image-grid-item">
+                    <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                    <div class="image-grid-item-text-line text-line-split">
+                        <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
+                        <h3 class="image-grid-item-text text-right">@galleryImage.Technique</h3>
+                    </div>
+                    </div>
+            </div>
+        }
+    </article>
 
 </section>
 

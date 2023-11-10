@@ -17,6 +17,11 @@
     string commentFour =  Model.CommentFour;
     string commentFive =  Model.CommentFive;
 
+    string authorOne = Model.AuthorOne;
+    string authorTwo = Model.AuthorTwo;
+    string authorThree = Model.AuthorThree;
+    string authorFour = Model.AuthorFour;
+    string authorFive = Model.AuthorFive;
 }
 
 <section class="section section--half-height background-image-full overlay overlay--dark section--content-center"
@@ -80,17 +85,44 @@
 </section>*@
 
 <div class="main-gallery">
-    <div class="gallery-cell">@commentOne</div>
-    <div class="gallery-cell">@commentTwo</div>
-    <div class="gallery-cell">@commentThree</div>
+    <div class="gallery-cell">
+        <div class="comment-container">
+            <p class="comment-text">@commentOne</p>
+            <p class="comment-author">@authorOne</p>
+        </div>
+    </div>
+    <div class="gallery-cell">
+        <div class="comment-container">
+            <p class="comment-text">@commentTwo</p>
+            <p class="comment-author">@authorTwo</p>
+        </div>
+    </div>
+    <div class="gallery-cell">
+        <div class="comment-container">
+            <p class="comment-text">@commentThree</p>
+            <p class="comment-author">@authorThree</p>
+        </div>
+    </div>
+    <div class="gallery-cell">
+        <div class="comment-container">
+            <p class="comment-text">@commentFour</p>
+            <p class="comment-author">@authorFour</p>
+        </div>
+    </div>
+    <div class="gallery-cell">
+        <div class="comment-container">
+            <p class="comment-text">@commentFive</p>
+            <p class="comment-author">@authorFive</p>
+        </div>
+    </div>
 </div>
 
-<section class="comment-section">
+@* <section class="comment-section">
     <div class="comment-container">
         <p class="comment-text">"@commentOne"</p>
         <p class="comment-author">@commentTwo</p>
     </div>
 
 
-</section>
+ *@</section>
 

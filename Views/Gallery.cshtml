@@ -9,23 +9,8 @@
     var pageTitle = Model.PageTitle ?? string.Empty;
     var contactTitle = Model.ContactTitle ?? string.Empty;
     var contactInfo = Model.ContactInfo ?? string.Empty;
+    var ctaLinkText = Model.CtaText ?? string.Empty;
 }
-@{
-    List<dynamic> getImages()
-    {
-        List<dynamic> collection = new();
-        foreach (dynamic galleryImage in Model.Children())
-        {
-            if (galleryImage.Technique == "Akvarell")
-            {
-                collection.Add(galleryImage);
-            }
-        }
-
-        return collection;
-    }
-}
-
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
 
@@ -35,53 +20,31 @@
     </article>
 </section>
 
-<section class ="container">
-    <hr/>
-    <h2>Akvarell</h2>
-    <div class="gallery-grid">
-        @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
-            GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha
-        *@
-        @foreach (GalleryImage galleryImage in getImages())
-        {
-            <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
-            {
-                title: '@galleryImage.Titel',
-                url: '@galleryImage.Image.Url()',
-                altText: '@galleryImage.AltText',
-                description: '@galleryImage.Beskrivning',
-                technique: '@galleryImage.Technique',
-                series: '@string.Join(", ", @galleryImage.Series)',
-                seriesTags: '@string.Join(", ", @galleryImage.Tags)',
-                width: '@galleryImage.Width',
-                height: '@galleryImage.Height',
-                availability: '@galleryImage.Availability',
-                miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
-
-            }
-            )">
-                <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
-            </button>
-        }
+<section class="section container cta-section">
+    <div class="cta-container">
+        <a href="#contact-form">@ctaLinkText</a>
     </div>
 </section>
+
 @*Istället för foreach, gör en for och ge ID av varje section till "gallery-section-INDEX", sen kan vi använda scroll to nästa sektion *@
 @{
     var list = GetTechniqueLists();
+    int techniqueCount = list.Count;
 }
 @for (int index = 0; index < list.Count; index++)
 {
     LabeledCollection techniqueCollection = list[index];
-    <section id="gallery-section-@index" style="margin-block: 1.5rem;" class="container">
+    <section id="gallery-section-@index" class="gallery-section container">
         <hr/>
-        <h2 style="position: sticky; top: 5rem; width: 100%; margin: 0px; background-color: white;" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
-        <div class="gallery-grid">
+        <h2 class="gallery-section-title" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
+        
+        <div class="image-grid">
             @* Vi kan använda dynamic för att slippa kompileringsproblem i våra olika c#-funktioner, men vi måste ha 
             GalleryImage när vi skapar html här i själva dokumentet för att umbraco inte ska krascha
         *@
             @foreach (GalleryImage galleryImage in @techniqueCollection.Collection)
             {
-                <button class="gallery-grid-item" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
+                <button class="image-grid-container image-col-3" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
             {
                 title: '@galleryImage.Titel',
                 url: '@galleryImage.Image.Url()',
@@ -97,19 +60,68 @@
 
             }
             )">
-                    <img class="gallery-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"></img>
+                    <div class="image-grid-item image-grid-hoverable">
+                        <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText"/>
+                        <div class="image-grid-item-text-line">
+                                <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
+                        </div>
+                    </div>
                 </button>
             }
         </div>
     </section>
 }
 
+@{
+    var availableArt = GetAvailableArt();
+}
+
+<section id="gallery-section-@techniqueCount" class="gallery-section container">
+    <hr />
+    <h2 class="gallery-section-title" onclick="goToContactForm()">Just nu</h2>
+    <div class="image-grid">
+        @foreach(LabeledCollection availableType in availableArt)
+        {
+
+            @foreach (GalleryImage galleryImage in @availableType.Collection)
+            {
+                <button class="image-grid-container image-col-3" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
+            {
+                title: '@galleryImage.Titel',
+                url: '@galleryImage.Image.Url()',
+                altText: '@galleryImage.AltText',
+                description: '@galleryImage.Beskrivning',
+                technique: '@galleryImage.Technique',
+                series: '@string.Join(", ", @galleryImage.Series)',
+                seriesTags: '@string.Join(", ", @galleryImage.Tags)',
+                width: '@galleryImage.Width',
+                height: '@galleryImage.Height',
+                availability: '@galleryImage.Availability',
+                miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
+
+            }
+            )">
+                    <div class="image-grid-item image-grid-hoverable">
+                        <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText" />
+                        <div class="image-grid-item-text-line text-line-split">
+                            <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
+                            <h3 class="image-grid-item-text text-right">@availableType.Name</h3>
+                        </div>
+                    </div>
+                </button>
+            }
+        }
+    </div>
+</section>
+
+
 <section class="container">
     <hr />
     <article class="contact-container">
-    @{
+        <div class="contact-anchor" id="contact-form"></div>
+        @{
         await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
-    }
+        }
     </article>
 </section>
 
@@ -123,28 +135,34 @@
         </div>
 
         <div class="gallery-modal-container-content">
-        <div>
-        <h3>Beskrivning</h3>
-        <p id="gallery-modal-description"></p>
-            <h3>Teknik</h3>
-            <p id="gallery-modal-technique"></p>
-            <h3>Serie</h3>
-            <p id="gallery-modal-series"></p>
-            <h4>Motiv</h4>
-            <p id="gallery-modal-series-tags"></p>
-        </div>
 
-        <div>
-            <h3>Mått</h3>
-            <p id="gallery-modal-size"></p>
-            <h3>Detaljer</h3>
-            <p id="gallery-modal-availability"></p>
-            <h4>Taggar</h4>
-            <p id="gallery-modal-misc-tags"></p>
-        </div>
+            <div>
+            <h3>Beskrivning</h3>
+            <p id="gallery-modal-description"></p>
+            </div>
+
+            <div>
+                <h3>Teknik</h3>
+                <p id="gallery-modal-technique"></p>
+                <h3>Serie</h3>
+                <p id="gallery-modal-series"></p>
+                <h4>Motiv</h4>
+                <p id="gallery-modal-series-tags"></p>
+            </div>
+
+            <div>
+                <h3>Mått</h3>
+                <p id="gallery-modal-size"></p>
+                <h3>Detaljer</h3>
+                <p id="gallery-modal-availability"></p>
+                <h4>Taggar</h4>
+                <p id="gallery-modal-misc-tags"></p>
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
 
@@ -153,9 +171,18 @@
     function goToSection(index){
         let nextSection = $("#gallery-section-" + index);
         if (nextSection.get(0) !== undefined) {
-            $("#gallery-section-" + index).get(0).scrollIntoView();
+            nextSection.get(0).scrollIntoView();
         }
     }
+    
+    
+    function goToContactForm(){
+        let form = $("#contact-form");
+        if(form.get(0) != undefined){
+            form.get(0).scrollIntoView();
+        }
+    }
+
 
     function showModal(imageObject){
         //Title
@@ -250,5 +277,33 @@
         }
 
         return techniqueLists.Values.ToList();
+    }
+
+    List<LabeledCollection> GetAvailableArt()
+    {
+
+        Dictionary<string, LabeledCollection> availableTypes = new();
+
+        foreach (dynamic galleryImage in Model.Children())
+        {
+            string availablity = galleryImage.Availability;
+
+            if (availablity == "Ej tillgänglig")
+                continue;
+
+            if (availablity == null)
+                continue;
+
+            if (!availableTypes.ContainsKey(availablity))
+            {
+                availableTypes[availablity] = new LabeledCollection(availablity);
+            }
+
+
+            availableTypes[availablity].Add(galleryImage);
+
+        }
+
+        return availableTypes.Values.ToList();
     }
 }

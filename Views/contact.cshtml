@@ -30,7 +30,6 @@
             <section class="container">
                 <hr />
             <div class="contact-container">
-                
                 @{
                     await Html.RenderPartialAsync("Partials/ContactForm", 
                     new PageContactFormViewModel() { Title = @contactTitle, PageInfo = @contactInfo });

@@ -12,6 +12,7 @@
     var contactInfo = Model.ContactInfo ?? string.Empty;
 
     var ctaLinkText = Model.CtaText ?? string.Empty;
+
 }
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -30,38 +31,34 @@
 
 </section>
 
-<section class="section">
-    <div class="container text-container">
-        <div class="cta-container">
-            <a href="#contact-form">@ctaLinkText</a>
-        </div>
+<section class="section container cta-section">
+    <div class="cta-container">
+        <a href="#contact-form">@ctaLinkText</a>
     </div>
-
 </section>
 
-<section class="section">
+<section class="section image-section container">
 
-    <hr class="container"/>
-
-    <div class="container text-container frameworks-container">
-
-        <div>
-            <article>
-                @await Html.GetBlockGridHtmlAsync(Model, "frames")
-            </article>
-        </div>
-    </div>
+    <hr />
+    <h2 class="image-section-title">Tidigare beställningar</h2>
+    <article class="image-grid">
+        @foreach (ProductFrame frame in Model.Children())
+        {
+            <div class="image-grid-container image-col-2">
+                <img class="image-grid-item-image image-grid-item" src='@frame.Image?.Url()' alt="@frame.Name"/>
+            </div>
+        }
+    </article>
 
 </section>
-
-
 
 <section class="container">
     <hr />
-    <article id="contact-form" class="contact-container">
-    @{
+    <article class="contact-container">
+        <div class="contact-anchor" id="contact-form"></div>
+        @{
         await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
-    }
+        }
     </article>
 </section>
 

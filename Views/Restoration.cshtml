@@ -16,6 +16,7 @@
 
     var contactTitle = Model.ContactTitle ?? string.Empty;
     var contactInfo = Model.ContactInfo ?? string.Empty;
+    var ctaLinkText = Model.CtaText ?? string.Empty;
     
 }
 
@@ -32,42 +33,60 @@
     </div>
 </section>
 
-@foreach (dynamic imagePair in images)
-{
-    if (imagePair.Count != 2)
-        continue;
+<section class="section container cta-section">
+    <div class="cta-container">
+        <a href="#contact-form">@ctaLinkText</a>
+    </div>
+</section>
 
-    var image1 = imagePair[0] as IPublishedContent;
-    var image2 = imagePair[1] as IPublishedContent;
 
-        
-    <section class="section">
-        <div class="container text-container">
+<section class="section image-section container">
+    <hr />
+    <h2 class="image-section-title">Tidigare Restaureringar</h2>
+
+    @foreach (dynamic imagePair in images)
+    {
+        if (imagePair.Count != 2)
+            continue;
+
+        var image1 = imagePair[0] as IPublishedContent;
+        var image2 = imagePair[1] as IPublishedContent;
+
+            
             <article>
-                <div class="restoration-image-row">
-                    <div class="restoration-image-container">
-                        <img class="restoration-image-fill" src="@image1.Url()"/>
-                        <p>Före</p>
+                    <div class="image-grid">
+                        <div class="image-grid-container image-col-2">
+                            <div class="image-grid-item">
+                                <img class="image-grid-item-image" src="@image1.Url()"/>
+                                <div class="image-grid-item-text-line">
+                                    <h3 class="image-grid-item-text">Före</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-grid-container image-col-2">
+                            <div class="image-grid-item">
+                                <img class="image-grid-item-image" src="@image2.Url()"/>
+                                <div class="image-grid-item-text-line">
+                                    <h3 class="image-grid-item-text">Efter</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="restoration-image-container">
-                        <img class="restoration-image-fill" src="@image2.Url()"/>
-                        <p>Efter</p>
-                    </div>
-                </div>
 
-                <div class="row">
-                </div>
+                    <div class="row">
+                    </div>
             </article>
-        </div>
-    </section>
-}
+    }
+
+</section>
 
 <section class="container">
     <hr />
     <article class="contact-container">
-    @{
+        <div class="contact-anchor" id="contact-form"></div>
+        @{
         await Html.RenderPartialAsync("Partials/ContactForm", new PageContactFormViewModel(){Title=@contactTitle, PageInfo = @contactInfo});
-    }
+        }
     </article>
 </section>
 

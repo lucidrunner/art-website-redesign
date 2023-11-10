@@ -39,43 +39,46 @@
     </div>
 </section>
 
-<hr class="container"/>
 
-@foreach (dynamic imagePair in images)
-{
-    if (imagePair.Count != 2)
-        continue;
+<section class="section image-section container">
+    <hr />
+    <h2 class="image-section-title">Tidigare Restaureringar</h2>
 
-    var image1 = imagePair[0] as IPublishedContent;
-    var image2 = imagePair[1] as IPublishedContent;
+    @foreach (dynamic imagePair in images)
+    {
+        if (imagePair.Count != 2)
+            continue;
 
-        
-    <section class="section image-section">
-        <article class="container">
-                <div class="image-grid">
-                    <div class="image-grid-container image-col-2">
-                        <div class="image-grid-item">
-                            <img class="image-grid-item-image" src="@image1.Url()"/>
-                            <div class="image-grid-item-text-line">
-                                <h3 class="image-grid-item-text">Före</h3>
+        var image1 = imagePair[0] as IPublishedContent;
+        var image2 = imagePair[1] as IPublishedContent;
+
+            
+            <article>
+                    <div class="image-grid">
+                        <div class="image-grid-container image-col-2">
+                            <div class="image-grid-item">
+                                <img class="image-grid-item-image" src="@image1.Url()"/>
+                                <div class="image-grid-item-text-line">
+                                    <h3 class="image-grid-item-text">Före</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-grid-container image-col-2">
+                            <div class="image-grid-item">
+                                <img class="image-grid-item-image" src="@image2.Url()"/>
+                                <div class="image-grid-item-text-line">
+                                    <h3 class="image-grid-item-text">Efter</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="image-grid-container image-col-2">
-                        <div class="image-grid-item">
-                            <img class="image-grid-item-image" src="@image2.Url()"/>
-                            <div class="image-grid-item-text-line">
-                                <h3 class="image-grid-item-text">Efter</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                </div>
-        </article>
-    </section>
-}
+                    <div class="row">
+                    </div>
+            </article>
+    }
+
+</section>
 
 <section class="container">
     <hr />

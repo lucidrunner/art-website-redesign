@@ -98,14 +98,15 @@
 
 .mobile-nav--open {
     visibility: visible;
-    height: 100vh
+    height: 100vh;
+    padding-top: 4rem;
 }
 
 .mobile-nav .nav-link {
     transition: transform .6s cubic-bezier(.23,1,.32,1);
     transform: translateY(999px);
     opacity: 0;
-    font-size: var(--font-large);
+    font-size: 1.2rem;
     margin: 15px;
 }
 

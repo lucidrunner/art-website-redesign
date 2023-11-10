@@ -5,6 +5,8 @@
 	Layout = "master.cshtml";
 	var backgroundImage = Model.BannerImage != null ? Model.BannerImage.Url() : String.Empty;
 	var pageTitle = Model.PageTitle ?? string.Empty;
+
+    var ctaLinkText = Model.CtaText ?? string.Empty;
 }
 
 @await Umbraco.RenderMacroAsync("BannerImage", new {imageUrl=@backgroundImage, bannerText=@pageTitle})
@@ -22,6 +24,11 @@
             </h2>
                 @Model.Value("shortCourseInformation")
         </div>
+        <section class="section container cta-section">
+            <div class="cta-container">
+                <a href="#contact-form">@ctaLinkText</a>
+            </div>
+        </section>
         <div class="courses-div">
             <h2 class="courses-text-center">
                 @Model.Value("availbleCoursesHeading")
@@ -49,6 +56,7 @@
         </div>
     </div>
     <div class="contact-container">
+        <div class="contact-anchor" id="contact-form"></div>
         @{
             await Html.RenderPartialAsync("Partials/CoursesForm");
         }

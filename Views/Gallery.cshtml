@@ -29,6 +29,7 @@
 @*Istället för foreach, gör en for och ge ID av varje section till "gallery-section-INDEX", sen kan vi använda scroll to nästa sektion *@
 @{
     var list = GetTechniqueLists();
+    int techniqueCount = list.Count;
 }
 @for (int index = 0; index < list.Count; index++)
 {
@@ -70,6 +71,50 @@
         </div>
     </section>
 }
+
+@{
+    var availableArt = GetAvailableArt();
+    int availableArtIndex = techniqueCount + 1;
+}
+
+<section id="gallery-section-@availableArtIndex" class="gallery-section container">
+    <hr />
+    <h2 class="gallery-section-title" onclick="goToContactForm()">Just nu</h2>
+    <div class="image-grid">
+        @foreach(LabeledCollection availableType in availableArt)
+        {
+
+            @foreach (GalleryImage galleryImage in @availableType.Collection)
+            {
+                <button class="image-grid-container image-col-3" aria-label="Öppna @galleryImage.Titel" onclick="showModal(
+            {
+                title: '@galleryImage.Titel',
+                url: '@galleryImage.Image.Url()',
+                altText: '@galleryImage.AltText',
+                description: '@galleryImage.Beskrivning',
+                technique: '@galleryImage.Technique',
+                series: '@string.Join(", ", @galleryImage.Series)',
+                seriesTags: '@string.Join(", ", @galleryImage.Tags)',
+                width: '@galleryImage.Width',
+                height: '@galleryImage.Height',
+                availability: '@galleryImage.Availability',
+                miscTags: '@string.Join(", ", @galleryImage.MiscTags)',
+
+            }
+            )">
+                    <div class="image-grid-item image-grid-hoverable">
+                        <img class="image-grid-item-image" src='@galleryImage.Image?.Url()' alt="@galleryImage.AltText" />
+                        <div class="image-grid-item-text-line text-line-split">
+                            <h3 class="image-grid-item-text">@galleryImage.Titel</h3>
+                            <h3 class="image-grid-item-text text-right">@availableType.Name</h3>
+                        </div>
+                    </div>
+                </button>
+            }
+        }
+    </div>
+</section>
+
 
 <section class="container">
     <hr />
@@ -127,9 +172,18 @@
     function goToSection(index){
         let nextSection = $("#gallery-section-" + index);
         if (nextSection.get(0) !== undefined) {
-            $("#gallery-section-" + index).get(0).scrollIntoView();
+            nextSection.get(0).scrollIntoView();
         }
     }
+    
+    
+    function goToContactForm(){
+        let form = $("#contact-form");
+        if(form.get(0) != undefined){
+            form.get(0).scrollIntoView();
+        }
+    }
+
 
     function showModal(imageObject){
         //Title
@@ -224,5 +278,33 @@
         }
 
         return techniqueLists.Values.ToList();
+    }
+
+    List<LabeledCollection> GetAvailableArt()
+    {
+
+        Dictionary<string, LabeledCollection> availableTypes = new();
+
+        foreach (dynamic galleryImage in Model.Children())
+        {
+            string availablity = galleryImage.Availability;
+
+            if (availablity == "Ej tillgänglig")
+                continue;
+
+            if (availablity == null)
+                continue;
+
+            if (!availableTypes.ContainsKey(availablity))
+            {
+                availableTypes[availablity] = new LabeledCollection(availablity);
+            }
+
+
+            availableTypes[availablity].Add(galleryImage);
+
+        }
+
+        return availableTypes.Values.ToList();
     }
 }

@@ -26,10 +26,11 @@
         </div>
          <div class="form-input-container">
             <label>
-                Telefonnummer (ex: +46 123 456 7890)
+                Telefonnummer (ex: +46 123 456 789)
                 <input type="tel" class="course-form-text-input"
-                       pattern=^([+]46)\s*(\d{3})\s*(\d{3})\s*(\d{4})$ required
-                       placeholder="+46 123 456 7890" />
+                       pattern="^([+]46)[\d\s]{4,}||[\d\s]{5,}$"
+                       required
+                       placeholder="+46 123 456 789" />
             </label>
         </div>
         

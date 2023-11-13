@@ -1,4 +1,17 @@
-﻿.contact-container {
+﻿.contact-content {
+    margin-top: 20px;
+    margin-bottom: 1rem;
+}
+
+.contact-content-block {
+    padding: 0.8rem;
+}
+
+.contact-map {
+    margin-top: 1.3rem;
+}
+
+.contact-container {
     width: 100%;
     max-width: 600px;
     margin-top: 2rem;

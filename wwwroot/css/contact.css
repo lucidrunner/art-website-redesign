@@ -58,6 +58,15 @@
     -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
+.form-confirm {
+    background-color: white;
+    border: 2px solid var(--primary-100);
+}
+
+.form-confirm p {
+    color: var(--black-100);
+}
+
 .form-pageinfo {
     width: 100%;
     font-weight: 400;
@@ -124,3 +133,8 @@
     .form-control{
         color: black;
     }
+
+.text-danger {
+    padding-top: 0.5rem;
+    color: red;
+}

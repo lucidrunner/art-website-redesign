@@ -2,11 +2,10 @@
 @using Umbraco.Extensions
 @using Umbraco.SampleSite.Controllers
 
-
 @{
     var message = TempData["Message"]?.ToString();
 }
-<form class="form-group">
+<form class="form-group" onsubmit="submitForm()">
 
     <h2 class="form-title">Anmäl dig</h2>
     <h3>Personuppgifter</h3>
@@ -17,14 +16,14 @@
             </label>
        
         </div>
-            <div class="form-input-container">
+        <div class="form-input-container">
             <label>
                 Epost
                 <input type="email" placeholder="namn.namnsson@mejl.se" class="course-form-text-input" required />
             </label>
        
         </div>
-         <div class="form-input-container">
+        <div class="form-input-container">
             <label>
                 Telefonnummer (ex: +46 123 456 789)
                 <input type="tel" class="course-form-text-input"
@@ -185,10 +184,10 @@
         </label>
     </div>
 
-   <div class="submit-container">
-    <input class="submit-button" type="submit" name="Submit" value="Submit"/>  
+    <div class="submit-container">
+        <input class="submit-button" type="submit" name="Submit" value="Submit"/>  
    
-   </div>
+    </div>
     <script>
         function hideAllExceptTarget(targetId) {
             var visibleElements = document.querySelectorAll('.visible');
@@ -206,4 +205,12 @@
         }
     </script>
 </form>
+
+
+<script>
+    function submitForm()
+    {
+        alert("Din kursanmälan har mottagits!")
+    }
+</script>
 

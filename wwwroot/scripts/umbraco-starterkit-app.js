@@ -39,8 +39,15 @@
                                 //    ? $(".header").addClass("header--fixed")
                                 //    : $(".header").removeClass("header--fixed")
                             }), $(".mobile-nav-handler").click(function(e) {
-                            $(".mobile-nav").toggleClass("mobile-nav--open"), $(".header").toggleClass("header--hide"),
-                                $("body").toggleClass("no-scroll"), $("#toggle-nav").toggleClass("active")
+                                $(".mobile-nav").toggleClass("mobile-nav--open"), $(".header").toggleClass("header--hide"),
+                                    $("body").toggleClass("no-scroll"), $("#toggle-nav").toggleClass("active"),
+                                    $("#toggle-nav").attr('aria-expanded', function (i, attr) {
+                                        return attr == 'true' ? 'false' : 'true'
+                                    }),
+                                    $("#toggle-nav").attr('aria-label', function (i, attr) {
+                                        //Have to use the unicode values for ä and Ö
+                                        return attr == 'St\u00E4ng meny' ? '\u00D6ppna meny' : 'St\u00E4ng meny'
+                                    })
                         }), $(".nav-link").click(function(e) {
                             $(".mobile-nav").removeClass("mobile-nav--open"), $(".header").removeClass("header--hide"),
                                 $("body").removeClass("no-scroll"), $("#toggle-nav").removeClass("active")

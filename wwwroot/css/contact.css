@@ -20,7 +20,7 @@
     border: 2px solid var(--black-15);
     
     padding: 20px;
-    margin-inline: auto;
+    margin-inline: auto; 
 
     box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
     -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
@@ -41,8 +41,9 @@
     border-radius: 5px;
 }
 
-.form-pageinfo{
+.form-pageinfo {
     width: 100%;
+    font-weight: 400;
 }
 
 .form-message {

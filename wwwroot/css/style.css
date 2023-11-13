@@ -11,8 +11,24 @@
 .cta-container {
     max-width: 620px;
     margin: auto;
+    text-align: center;
+    background-color: var(--primary-10);
+    padding: 1rem;
+    font-size: 1.05rem;
+    border-radius: 0.25rem;
 }
 
 .cta-container a {
     font-family: Source Sans Pro, sans-serif !important;
+    font-weight: 600;
+    color: #0066cc;
 }
+
+.cta-container a:hover {
+    text-decoration: underline;
+}
+
+
+    .cta-container a:visited {
+        color: #0066cc;
+    }

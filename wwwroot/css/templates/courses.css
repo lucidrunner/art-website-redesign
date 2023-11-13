@@ -11,3 +11,16 @@
 .courses-text-center {
     text-align: center;
 }
+
+.courses-short-info {
+    max-width: 620px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -moz-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+    -webkit-box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
+}
+
+.courses-cta {
+    margin-top: 1.5rem;
+}

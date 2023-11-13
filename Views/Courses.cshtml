@@ -17,18 +17,19 @@
         <div class="courses-div">
             @Model.Value("introdructionText")
         </div>
-        <div class="courses-div">
+        <div class="courses-div courses-short-info">
             <h2 class="courses-text-center">
                 @Model.Value("shortCourseInformationHeading",
                 fallback: Fallback.ToDefaultValue, defaultValue: "")
             </h2>
                 @Model.Value("shortCourseInformation")
+            <section class="courses-cta cta-section">
+                <div class="cta-container">
+                    <a href="#contact-form">@ctaLinkText</a>
+                </div>
+            </section>
         </div>
-        <section class="section container cta-section">
-            <div class="cta-container">
-                <a href="#contact-form">@ctaLinkText</a>
-            </div>
-        </section>
+       
         <div class="courses-div">
             <h2 class="courses-text-center">
                 @Model.Value("availbleCoursesHeading")

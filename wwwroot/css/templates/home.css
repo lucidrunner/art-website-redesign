@@ -8,15 +8,17 @@
     margin: auto;
     width: fit-content;
     max-width: 500px;
+    text-align: left;
 }
 
-.comment-author{
-    text-align: center;
+.comment-author {
+    text-align: left;
+    font-weight: 700;
 }
 
 .main-gallery{
     width: 100%;
-    height: 300px;f
+    height: 250px;
     background-color: white;
 }
 

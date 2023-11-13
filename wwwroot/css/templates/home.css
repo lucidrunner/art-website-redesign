@@ -7,13 +7,23 @@
 .comment-container{
     margin: auto;
     width: fit-content;
-    max-width: 500px;
+    max-width: 600px;
     text-align: left;
 }
 
-.comment-author {
+.comment-text {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
     text-align: left;
-    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.comment-author {
+    margin-top: 0;
+    padding-left: 0.25rem;
+    text-align: left;
+    font-weight: 600;
 }
 
 .main-gallery{

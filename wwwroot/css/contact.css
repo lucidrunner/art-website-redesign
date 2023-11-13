@@ -37,13 +37,15 @@
     margin-block: 1rem;
     width: 100%;
     padding: 1rem;
-    background-color: var(--primary-25);
+    background-color: var(--primary-100);
     border-radius: 5px;
+    box-shadow: 0 0.2rem 0.4rem var(--shadow-50);
 }
 
 .form-pageinfo {
     width: 100%;
     font-weight: 400;
+    color:white;
 }
 
 .form-message {

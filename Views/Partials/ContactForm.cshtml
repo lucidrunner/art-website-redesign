@@ -10,39 +10,44 @@
 @using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.Submit)))
 {
     <h2 class="form-title">@Model.Title</h2>
+    
     <div class="form-input-container">
         <label >Förnamn och Efternamn
         @Html.TextBoxFor(m => m.Name, new {@class="form-control form-name", placeholder = "Namn Namnsson"})    
         </label>
-        @Html.ValidationMessageFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name, null, new {@class="text-danger"})
     </div>
         <div class="form-input-container">
         <label>
-            Epost
+            E-post
         @Html.TextBoxFor(m => m.Email, new {@class="form-control form-email", placeholder ="namn.namnsson@mejl.se" })
         </label>
-        @Html.ValidationMessageFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email, null, new {@class="text-danger"})
     </div>
     <div class="form-pageinfo-container">
         <p class="form-pageinfo">
             @Model.PageInfo
         </p>
     </div>
-        <div class="form-input-container">
+    <div class="form-input-container">
         <label>
             Meddelande
-        @Html.TextAreaFor(m => m.Message, new {@class="form-control form-message", placeholder = "Fyll i ditt meddelande..."})
-            </label>
-        @Html.ValidationMessageFor(m => m.Message)
+            @Html.TextAreaFor(m => m.Message, new {@class="form-control form-message", placeholder = "Fyll i ditt meddelande..."})
+        </label>
+        @Html.ValidationMessageFor(m => m.Message, null, new {@class="text-danger"})
 
     </div>
-   <div class="submit-container">
-    <input class="submit-button" type="submit" name="Submit" value="Submit"/>  
-   @if (!string.IsNullOrEmpty(message))
-   {
-       @message
-   }
-   </div>
- 
-}
+    @if (!string.IsNullOrEmpty(message))
+    {
+        <div class="form-pageinfo-container form-confirm">
+       
+            <p class="form-pageinfo" style="text-align:center">Tack! Vi har mottagit din förfrågan.</p>
+        
+        </div>
+    }
+    <div class="submit-container">
+        <input class="submit-button" type="submit" name="Submit" value="Submit"/>
+    </div>
+
+    }
 </div>

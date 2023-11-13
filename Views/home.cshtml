@@ -37,33 +37,34 @@
     <div class="row">
         <div class="col-xs-12">
             @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
-            new { thumbnail = @artgalleryImage, label = "Galleri", url = "galleri" })
+                new { thumbnail = @artgalleryImage, label = "Galleri", url = "galleri" })
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
             @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
-            new { thumbnail = @coursesImage, label = "Kurser", url = "kurser" })
+                new { thumbnail = @coursesImage, label = "Kurser", url = "kurser" })
         </div>
 
         <div class="col-xs-12 col-md-6">
             @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
-            new { thumbnail = @portraitImage, label = "Porträtt", url = "portraett" })
+                new { thumbnail = @portraitImage, label = "Porträtt", url = "portraett" })
         </div>
     </div>
     
     <div class="row">
         <div class="col-xs-12 col-md-6">
             @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
-            new { thumbnail = @restorationImage, label = "Restaurering", url = "restaurering" })
+                new { thumbnail = @restorationImage, label = "Restaurering", url = "restaurering" })
         </div>
 
         <div class="col-xs-12 col-md-6">
             @await Umbraco.RenderMacroAsync("FrontPageMenuItem", 
-            new { thumbnail = @frameWorkshopImage, label = "Ramar", url = "ramar" })
+                new { thumbnail = @frameWorkshopImage, label = "Ramar", url = "ramar" })
         </div>
     </div>
 </section>
+
 
 <div class="main-gallery">
     <div class="gallery-cell">
@@ -97,4 +98,3 @@
         </div>
     </div>
 </div>
-

@@ -34,17 +34,17 @@
 @for (int index = 0; index < list.Count; index++)
 {
     LabeledCollection techniqueCollection = list[index];
-    <section id="gallery-section-@index" class="gallery-section container">
+    <section id="gallery-section-@index" tabindex="0" class="gallery-section container">
         <hr/>
         <div class="gallery-section-title-container">
-            <h2 class="gallery-section-title" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
+            <h2 id="gallery-section-@index-title" class="gallery-section-title" onclick="goToSection(@index+1)">@techniqueCollection.Name</h2>
                 <div>
             @if(index!=0)
             {
-                <button class="btn-gallery-jump" onclick="goToSection(@index-1)" aria-label="Gå till tidigare sektion">↑</button>
+                    <button class="btn-gallery-jump" onclick="goToSection(@index-1)" aria-label="Gå till tidigare sektion">↑</button>
             }
                 
-                    <button class="btn-gallery-jump" onclick="goToSection(@index+1)" aria-label=" Gå till nästa sektion">↓</button>
+                    <button class="btn-gallery-jump"  onclick="goToSection(@index+1)" aria-label=" Gå till nästa sektion">↓</button>
                 </div>
         </div>
         
@@ -87,7 +87,7 @@
     var availableArt = GetAvailableArt();
 }
 
-<section id="gallery-section-@techniqueCount" class="gallery-section container">
+<section id="gallery-section-@techniqueCount" tabindex="0" class="gallery-section container">
     <hr />
     <div class="gallery-section-title-container">
         <h2 class="gallery-section-title" onclick="goToContactForm()">Just nu</h2>
@@ -140,7 +140,7 @@
 </section>
 
 <section id="gallery-modal" class="gallery-modal-overlay">
-    <div id="gallery-modal-container" tabindex="1" class="container gallery-modal-inner">
+    <div id="gallery-modal-container" tabindex="0" class="container gallery-modal-inner" aria-modal="true">
         <button id="btn-modal-exit" class="btn-modal-exit" onclick="hideModal()" aria-label="Stäng">X</button>
         <img id="gallery-modal-image" class="gallery-modal-image"/>
         <div class="gallery-modal-title-line">
@@ -184,8 +184,10 @@
     
     function goToSection(index){
         let nextSection = $("#gallery-section-" + index);
+
         if (nextSection.get(0) !== undefined) {
             nextSection.get(0).scrollIntoView();
+            nextSection.focus();
         }
     }
     

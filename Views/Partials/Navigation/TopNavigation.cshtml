@@ -10,6 +10,6 @@
 <a class="nav-link @Html.Raw(Model.Id == site.Id ? "nav-link--active" : "")" href="@site.Url()">Hem</a>
 @foreach (var item in selection)
 {
-    <span class="mobile-nav-line"></span>
+    <span class="mobile-nav-line" aria-hidden="true"></span>
     <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url()">@item.Name</a>
 }

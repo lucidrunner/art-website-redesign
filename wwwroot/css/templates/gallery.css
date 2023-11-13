@@ -40,6 +40,10 @@
     color: var(--primary-100);
 }
 
+    .btn-gallery-jump:hover {
+        text-shadow: 1px 1px 2px var(--shadow-50);
+    }
+
 /* MODAL */
 .gallery-modal-overlay {
     position: fixed;

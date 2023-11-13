@@ -39,7 +39,7 @@
         <div class="cardmenu-image-container">
             @if (media!=null)
             {
-                <img class="cardmenu-image" src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 1500, height: 1500)" alt="@media.Name" />
+                <img class="cardmenu-image" src="@media.GetCropUrl(ImageUrlGenerator, PublishedValueFallback, PublishedUrlProvider, width: 1500, height: 1500)" alt="@media.Name" aria-hidden="true"/>
             }
         </div>
         <h2 class="cardmenu-label">

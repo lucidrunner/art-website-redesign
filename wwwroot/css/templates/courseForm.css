@@ -43,3 +43,7 @@
     position: relative;
     bottom: 0.2rem;
 }
+
+.form-input-container select{
+    width: 100%;
+}
